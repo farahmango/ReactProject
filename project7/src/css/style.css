@@ -448,7 +448,8 @@ a {
 .site-blocks-cover {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center;
+ }
   .site-blocks-cover, .site-blocks-cover .row {
     min-height: 600px;
     height: calc(100vh - 174px); }
