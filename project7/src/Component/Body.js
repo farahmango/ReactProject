@@ -1,17 +1,17 @@
 
 import React, {Component} from 'react'
+import  {Header} from '../Component/Header'
 
 
 export class Body extends Component {
     render() {
 
       return (
- 
 
-
-
-
+<React.Fragment>
+<Header />
 <div style={{ margin:'100px 0 20px 0' }}>
+
 <div class="col-md-12 site-section-heading text-center pt-4">
             <h2>Our Best Sellers</h2>
             <p style={{ fontSize:"20px" }}>With so many different fresh rare exotic fruit in stock in can be hard to<br /> choose, here is our current Top 10 in stock items rated by our customers -</p>
@@ -101,7 +101,7 @@ export class Body extends Component {
 
 </div>
 
-
+</React.Fragment>
 
 
       )
