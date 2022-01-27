@@ -1,13 +1,4 @@
-import '../css/bootstrap/bootstrap-grid.css'
-import '../css/bootstrap/bootstrap-reboot.css'
-import '../css/aos.css'
-import '../css/bootstrap.min.css'
-// import '../css/jquery-ui.css'
-import '../css/magnific-popup.css'
-// import '../css/owl.carousel.min.css'
-// import '../css/owl.theme.default.min.css'
-import '../css/style.css'
-import '../fonts/icomoon/style.css'
+
 import React, {Component} from 'react'
 
 
@@ -16,7 +7,7 @@ export class Nav extends Component {
       return (
 
 
-  <div class="site-wrap">
+  <div >
     <header class="site-navbar" role="banner">
       
       <div class="site-navbar-top" style={{ height:'5vh' }}>
