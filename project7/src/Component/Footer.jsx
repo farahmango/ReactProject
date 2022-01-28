@@ -1,15 +1,5 @@
-// import "../css/bootstrap/bootstrap-grid.css";
-// import "../css/bootstrap/bootstrap-reboot.css";
-// import "../css/aos.css";
-// import "../css/bootstrap.min.css";
-// // import '../css/jquery-ui.css'
-// import "../css/magnific-popup.css";
-// // import '../css/owl.carousel.min.css'
-// // import '../css/owl.theme.default.min.css'
-// import "../css/style.css";
-// import "../fonts/icomoon/style.css";
-
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 export class Footer extends Component {
   render() {
     return (
@@ -24,54 +14,54 @@ export class Footer extends Component {
                 <div className="col-md-6 col-lg-4">
                   <ul className="list-unstyled">
                     <li>
-                      <a href="#">Sell online</a>
+                      <a href="#s">Sell online</a>
                     </li>
                     <li>
-                      <a href="#">Features</a>
+                      <a href="#s">Features</a>
                     </li>
                     <li>
-                      <a href="#">Shopping cart</a>
+                      <a href="#s">Shopping cart</a>
                     </li>
                     <li>
-                      <a href="#">Store builder</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-md-6 col-lg-4">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Mobile commerce</a>
-                    </li>
-                    <li>
-                      <a href="#">Dropshipping</a>
-                    </li>
-                    <li>
-                      <a href="#">Website development</a>
+                      <a href="#s">Store builder</a>
                     </li>
                   </ul>
                 </div>
                 <div className="col-md-6 col-lg-4">
                   <ul className="list-unstyled">
                     <li>
-                      <a href="#">Point of sale</a>
+                      <a href="#s">Mobile commerce</a>
                     </li>
                     <li>
-                      <a href="#">Hardware</a>
+                      <a href="#s">Dropshipping</a>
                     </li>
                     <li>
-                      <a href="#">Software</a>
+                      <a href="#s">Website development</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-md-6 col-lg-4">
+                  <ul className="list-unstyled">
+                    <li>
+                      <a href="#s">Point of sale</a>
+                    </li>
+                    <li>
+                      <a href="#s">Hardware</a>
+                    </li>
+                    <li>
+                      <a href="s#">Software</a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
             <div className="col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <h3 className="footer-heading mb-4">Promo</h3>
+              <h3 className="footer-heading mb-4">Weather</h3>
               <a href="#id" className="block-6">
-                {/* <img src="images/hero_1.jpg" alt="Image placeholder" className="img-fluid rounded mb-4"/> */}
-                <h3 className="font-weight-light  mb-0">
-                  Finding Your Perfect Shoes
-                </h3>
+        
+              <p>
+              <NavLink to="/weather" > <a href='#n' class="btn btn-sm btn-dark">See Weather</a></NavLink>  
+            </p>
                 <p>Promo from nuary 15 &mdash; 25, 2019</p>
               </a>
             </div>
@@ -90,24 +80,7 @@ export class Footer extends Component {
               </div>
 
               <div className="block-7">
-                <form action="#id" method="post">
-                  <label htmlFor="email_subscribe" className="footer-heading">
-                    Subscribe
-                  </label>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control py-4"
-                      id="email_subscribe"
-                      placeholder="Email"
-                    />
-                    <input
-                      type="submit"
-                      className="btn btn-sm btn-primary"
-                      value="Send"
-                    />
-                  </div>
-                </form>
+                
               </div>
             </div>
           </div>
@@ -124,7 +97,6 @@ export class Footer extends Component {
                 <i className="icon-heart" aria-hidden="true"></i> by{" "}
                 <a
                   href="https://colorlib.com"
-                  target="_blank"
                   className="text-primary"
                 >
                   Colorlib
