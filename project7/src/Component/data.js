@@ -1,16 +1,14 @@
-import React,{useState,useEffect} from "react";
+// import React,{useState,useEffect} from "react";
 
-const card =() => {
-	const [item, setItem] = useState([]);
-	useEffect(()=>{
+// const card =() => {
+// 	const [item, setItem] = useState([]);
+// 	useEffect(()=>{
 		
-	},[])
-		return (
-			<div>
-
-			<div/>
-		);
+// 	},[])
+// 		return (
+// 			<div><div/>
+// 		);
 	
-}
+// }
  
-export default card ;
+// export default card ;
