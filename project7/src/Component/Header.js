@@ -1,7 +1,5 @@
-
 import React, {Component} from 'react'
-
-
+import { NavLink } from "react-router-dom";
 export class Header extends Component {
     render() {
 
@@ -15,7 +13,7 @@ export class Header extends Component {
           <div class="intro-text text-center text-md-center">
             <p class="mb-4 h2" >Juicy, sweet and ready to eat exotic fruit delivered to your door   </p>
             <p>
-              <a href="d#" class="btn btn-sm btn-dark">Shop Now</a>
+              <NavLink to="/shop" > <a href='#n' class="btn btn-sm btn-dark">Shop Now</a></NavLink>  
             </p>
           </div>
         </div>

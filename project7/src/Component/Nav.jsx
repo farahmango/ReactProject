@@ -32,7 +32,7 @@ export class Nav extends Component {
               <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
                 <div className="site-logo" style={{ marginTop: -20 }}>
                   <a href="index.html" className="js-logo-clone">
-                    <img src="/images/logo.jpg" alt="" width="100px" />
+                    <img src="/frutes/logo2.jpg" alt="" width="100px" />
                   </a>
                 </div>
               </div>
