@@ -6,16 +6,22 @@ import Login from "./Component/Login.jsx";
 import Cart from "./Component/Cart.jsx";
 import Shop from "./Component/Shop.jsx";
 import About from "./Component/About.jsx";
-import Home from "./Component/Home.jsx";
+import {Body} from "./Component/Body";
 import Profile from "./Component/Profile.jsx";
-
+import React, { useState } from 'react';
+import {Api} from './Api'
 function App() {
+
+  
+
   return (
+    <React.Fragment>
     <BrowserRouter>
       <div className="site-wrap">
         <Nav />
         <Routes>
-        <Route  path="/" element={<Home />} />
+        <Route  path="/" element={<Body />} />
+        <Route path="/weather" element={<Api />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
@@ -23,10 +29,14 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
-
         <Footer />
-      </div>
+        
+      </div> 
+
+
+
     </BrowserRouter>
+    </React.Fragment>
   );
 }
 
