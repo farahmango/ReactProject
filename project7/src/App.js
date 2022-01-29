@@ -7,7 +7,7 @@ import Cart from "./Component/Cart.jsx";
 import Shop from "./Component/Shop.jsx";
 import About from "./Component/About.jsx";
 import {Body} from "./Component/Body";
-import Profile from "./Component/Profile.jsx";
+import {Profile} from "./Component/Profile.jsx";
 import React, { useState } from 'react';
 import {Api} from './Api'
 function App() {
