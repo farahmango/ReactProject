@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 import axios from "axios";
-import { Route, Navigate } from "react-router-dom";
+//import { Route, Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Login extends Component {
           users: response.data,
         });
       });
-    console.log(this.state.users);
+      
     //Email Validation
     if (this.state.email === "") {
       errors["email"] = "This field is required!";
@@ -64,7 +65,7 @@ class Login extends Component {
         user.password == this.state.password
       ) {
         isValid = true;
-        window.sessionStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.setItem("currentUser", JSON.stringify(user));
         this.setState({
           loggedIn: true,
         });
@@ -74,16 +75,14 @@ class Login extends Component {
     });
     this.setState({ errors: errors });
 
-    if (isValid === true) {
-      // <Navigate to={'/'} />
+    
       event.preventDefault();
-    } else {
-      event.preventDefault();
-    }
+    
   };
   render() {
     return (
       <React.Fragment>
+        {this.state.loggedIn === true ? <Navigate to="/shop" replace={true} /> : ""}
         <section className="sign-in">
           <div className="container signup">
             <div className="signin-content">
@@ -120,6 +119,7 @@ class Login extends Component {
                       {this.state.errors["email"]}
                     </small>
                   </div>
+                 
                   <div className="form-group">
                     <label htmlFor="your_pass">
                       <i className="zmdi zmdi-lock"></i>

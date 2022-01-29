@@ -22,6 +22,7 @@ html, body, #root {
 }
 
 .search {
+    width: 50%;
     outline: none;
     padding: 20px 7%;
     border-radius: 20px;

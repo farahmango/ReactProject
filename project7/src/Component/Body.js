@@ -146,10 +146,10 @@ export class Body extends Component {
                   </p>
                   <p>
                     {/*  */}
-                    <NavLink to="/shop">
-             
+                    <NavLink to="/shop"  className="btn btn-sm btn-dark">
+                    
                         Shop Now
-                  
+                     
                     </NavLink>
                   </p>
                 </div>

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./Register/css/style.css";
 import "./Register/fonts/material-icon/css/material-design-iconic-font.min.css";
 import axios from "axios";
-
+import { Navigate } from "react-router";
+ 
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,8 @@ class Register extends Component {
       email: "",
       password: "",
       re_pass: "",
+      phone:"",
+      address:"",
       errors: {},
       users: {},
       redirect: false,
@@ -27,12 +30,13 @@ class Register extends Component {
   };
 
   submitHandler = (event) => {
+     
     let isValid = true;
     let errors = {};
     let emailRegex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-
+    event.preventDefault();
     //User Name Validation
     if (this.state.name === "") {
       isValid = false;
@@ -64,17 +68,26 @@ class Register extends Component {
       errors["passwordMatch"] = "The tow passwords do not match!";
       isValid = false;
     }
-
+//phone Validation
+if (this.state.phone === "") {
+  errors["phone"] = "This field is required!";
+  isValid = false;
+}
+//phone Validation
+if (this.state.address === "") {
+  errors["address"] = "This field is required!";
+  isValid = false;
+}
     this.setState({ errors: errors });
 
     if (isValid === true) {
-      this.setState({
-        redirect: true,
-      });
+      
       var currentUser = {
         name: this.state.name,
         email: this.state.email,
         password: this.state.password,
+        phone: this.state.phone,
+        address: this.state.address,
       };
 
       axios
@@ -82,11 +95,11 @@ class Register extends Component {
         .then((res) => console.log(res.data))
         .catch((error) => {
           console.log(error.response);
-        });
+        }).then((response) => {
+          console.log(response);
+          this.setState({redirect: true})
+      });;
 
-        window.sessionStorage.setItem("user", JSON.stringify(currentUser));
-    } else {
-      event.preventDefault();
     }
   };
 
@@ -94,7 +107,7 @@ class Register extends Component {
     return (
       <React.Fragment>
         <section className="signup">
-
+        {this.state.redirect === true ? <Navigate to="/login" replace={true} /> : ""}
             <div className="signup-content">
               <div className="signup-form">
                 <h2 className="form-title">Sign up</h2>
@@ -135,6 +148,39 @@ class Register extends Component {
                       {this.state.errors["email"]}
                     </small>
                   </div>
+
+                  <div className="form-group">
+                    <label htmlFor="your_name">
+                    <i class="fas fa-phone"></i>
+                    </label>
+                    <input
+                      type="phone"
+                      name="phone"
+                      id="phone"
+                      placeholder="Your phone"
+                      onChange={this.setValue}
+                    />
+                    <small className="text-danger">
+                      {this.state.errors["phone"]}
+                    </small>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="your_name">
+                    <i class="fas fa-map-marker-alt"></i>
+                    </label>
+                    <input
+                      type="address"
+                      name="address"
+                      id="address"
+                      placeholder="Your address"
+                      onChange={this.setValue}
+                    />
+                    <small className="text-danger">
+                      {this.state.errors["address"]}
+                    </small>
+                  </div>
+
                   <div className="form-group">
                     <label htmlFor="pass">
                       <i className="zmdi zmdi-lock"></i>

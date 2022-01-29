@@ -1,11 +1,13 @@
 import react from "react";
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class About extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
-  state = {};
+ 
   render() {
     return (
       <React.Fragment>
@@ -13,7 +15,7 @@ class About extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 mb-0">
-                <a href="index.html">Home</a> <span className="mx-2 mb-0">/</span>{" "}
+                <NavLink to="/">Home</NavLink> <span className="mx-2 mb-0">/</span>{" "}
                 <strong className="text-black">About</strong>
               </div>
             </div>
@@ -26,11 +28,7 @@ class About extends Component {
               <div className="col-md-6">
                 <div className="block-16">
                   <figure>
-                    <img
-                      src="images/blog_1.jpg"
-                      alt="Image placeholder"
-                      className="img-fluid rounded"
-                    />
+                    <img src="images/blog_1.jpg" alt="Image placeholder" className="img-fluid rounded" />
 
                   </figure>
                 </div>
