@@ -10,8 +10,18 @@
 // import "../fonts/icomoon/style.css";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
 export class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: localStorage.getItem("loggedIn"),
+    };
+  }
+  componentDidMount() {
+    this.forceUpdate()
+  }
+
+
   render() {
     return (
       <header className="site-navbar" role="banner">
@@ -78,14 +88,20 @@ export class Nav extends Component {
             <li>
               <NavLink to="/shop">Shop</NavLink>
             </li>
-            
-
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
+        
+              <li>
+                <NavLink to="/logout">Logout</NavLink>
+              </li>
+         
+              <li>
+                 <NavLink to="/login">Login</NavLink>
+              </li>
+           
+          
+              <li>
+               <NavLink to="/register">Register</NavLink> 
+              </li>
+       
           </ul>
         </nav>
       </header>

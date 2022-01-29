@@ -40,7 +40,7 @@ class Login extends Component {
           users: response.data,
         });
       });
-      
+
     //Email Validation
     if (this.state.email === "") {
       errors["email"] = "This field is required!";
@@ -66,6 +66,7 @@ class Login extends Component {
       ) {
         isValid = true;
         localStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.setItem("loggedIn", isValid);
         this.setState({
           loggedIn: true,
         });
@@ -105,7 +106,7 @@ class Login extends Component {
                   onSubmit={this.submitHandler}
                 >
                   <div className="form-group">
-                    <label htmlFor="your_name">
+                    <label htmlFor="your_name" className="icons">
                       <i className="zmdi zmdi-account material-icons-name"></i>
                     </label>
                     <input
@@ -121,7 +122,7 @@ class Login extends Component {
                   </div>
                  
                   <div className="form-group">
-                    <label htmlFor="your_pass">
+                    <label htmlFor="your_pass" className="icons">
                       <i className="zmdi zmdi-lock"></i>
                     </label>
                     <input
