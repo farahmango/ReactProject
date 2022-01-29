@@ -60,7 +60,7 @@ export class Footer extends Component {
               <a href="#id" className="block-6">
         
               <p>
-              <NavLink to="/weather" > <a href='#n' class="btn btn-sm btn-dark">See Weather</a></NavLink>  
+              <NavLink to="/weather" >See Weather</NavLink>  
             </p>
                 <p>Promo from nuary 15 &mdash; 25, 2019</p>
               </a>
@@ -95,12 +95,7 @@ export class Footer extends Component {
                 <script>document.write(new Date().getFullYear());</script> All
                 rights reserved | This template is made with{" "}
                 <i className="icon-heart" aria-hidden="true"></i> by{" "}
-                <a
-                  href="https://colorlib.com"
-                  className="text-primary"
-                >
-                  Colorlib
-                </a>
+              
               </p>
             </div>
           </div>
