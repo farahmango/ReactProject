@@ -1,114 +1,51 @@
-// import "../css/bootstrap/bootstrap-grid.css";
-// import "../css/bootstrap/bootstrap-reboot.css";
-// import "../css/aos.css";
-// import "../css/bootstrap.min.css";
-// // import '../css/jquery-ui.css'
-// import "../css/magnific-popup.css";
-// // import '../css/owl.carousel.min.css'
-// // import '../css/owl.theme.default.min.css'
-// import "../css/style.css";
-// import "../fonts/icomoon/style.css";
-
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 export class Footer extends Component {
   render() {
     return (
       <footer className="site-footer border-top">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <div className="row">
-                <div className="col-md-12">
-                  <h3 className="footer-heading mb-4">Navigations</h3>
-                </div>
-                <div className="col-md-6 col-lg-4">
+            <div className="col-lg-12 mb-5 mb-lg-0">
+              <div className="row w-100">
+                <div className="col-md-4 col-lg-4">
+                  <h3 className="footer-heading mb-4">Quic Links</h3>
                   <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Sell online</a>
+                    <li className=" active">
+                      <NavLink to="/">Home</NavLink>
+                    </li>
+                    <li className="">
+                      <NavLink to="/about">About</NavLink>
                     </li>
                     <li>
-                      <a href="#">Features</a>
-                    </li>
-                    <li>
-                      <a href="#">Shopping cart</a>
-                    </li>
-                    <li>
-                      <a href="#">Store builder</a>
+                      <NavLink to="/shop">Shop</NavLink>
                     </li>
                   </ul>
                 </div>
-                <div className="col-md-6 col-lg-4">
+                <div className="col-md-4 col-lg-4 mb-4 mb-lg-0">
+                  <h3 className="footer-heading mb-4">Weather</h3>
+              
+                    <p>
+                      <NavLink to="/weather">See Weather</NavLink>
+                    </p>
+               
+                </div>
+                <div className="col-md-4 col-lg-4">
+                <div className="block-5 mb-5">
+                  <h3 className="footer-heading mb-4">Contact Info</h3>
                   <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Mobile commerce</a>
+                    <li className="address">Amman, Jordan</li>
+                    <li className="phone">
+                      <p>+2 392 3929 210</p>
                     </li>
-                    <li>
-                      <a href="#">Dropshipping</a>
-                    </li>
-                    <li>
-                      <a href="#">Website development</a>
-                    </li>
+                    <li className="email">emailaddress@domain.com</li>
                   </ul>
                 </div>
-                <div className="col-md-6 col-lg-4">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Point of sale</a>
-                    </li>
-                    <li>
-                      <a href="#">Hardware</a>
-                    </li>
-                    <li>
-                      <a href="#">Software</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3 mb-4 mb-lg-0">
-              <h3 className="footer-heading mb-4">Promo</h3>
-              <a href="#id" className="block-6">
-                {/* <img src="images/hero_1.jpg" alt="Image placeholder" className="img-fluid rounded mb-4"/> */}
-                <h3 className="font-weight-light  mb-0">
-                  Finding Your Perfect Shoes
-                </h3>
-                <p>Promo from nuary 15 &mdash; 25, 2019</p>
-              </a>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="block-5 mb-5">
-                <h3 className="footer-heading mb-4">Contact Info</h3>
-                <ul className="list-unstyled">
-                  <li className="address">
-                    203 Fake St. Mountain View, San Francisco, California, USA
-                  </li>
-                  <li className="phone">
-                    <a href="tel://23923929210">+2 392 3929 210</a>
-                  </li>
-                  <li className="email">emailaddress@domain.com</li>
-                </ul>
-              </div>
 
-              <div className="block-7">
-                <form action="#id" method="post">
-                  <label htmlFor="email_subscribe" className="footer-heading">
-                    Subscribe
-                  </label>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      className="form-control py-4"
-                      id="email_subscribe"
-                      placeholder="Email"
-                    />
-                    <input
-                      type="submit"
-                      className="btn btn-sm btn-primary"
-                      value="Send"
-                    />
-                  </div>
-                </form>
+                <div className="block-7"></div>
               </div>
+              </div>
+              
             </div>
           </div>
           <div className="row pt-5 mt-5 text-center">
@@ -122,13 +59,6 @@ export class Footer extends Component {
                 <script>document.write(new Date().getFullYear());</script> All
                 rights reserved | This template is made with{" "}
                 <i className="icon-heart" aria-hidden="true"></i> by{" "}
-                <a
-                  href="https://colorlib.com"
-                  target="_blank"
-                  className="text-primary"
-                >
-                  Colorlib
-                </a>
               </p>
             </div>
           </div>

@@ -1,49 +1,42 @@
 import react from "react";
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 class About extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
-  state = {};
+ 
   render() {
     return (
       <React.Fragment>
-        <div class="bg-light py-3">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 mb-0">
-                <a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>{" "}
-                <strong class="text-black">About</strong>
+        <div className="bg-light py-3">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 mb-0">
+                <NavLink to="/">Home</NavLink> <span className="mx-2 mb-0">/</span>{" "}
+                <strong className="text-black">About</strong>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="site-section border-bottom" >
-          <div class="container">
-            <div class="row mb-5">
-              <div class="col-md-6">
-                <div class="block-16">
+        <div className="site-section border-bottom" >
+          <div className="container">
+            <div className="row mb-5">
+              <div className="col-md-6">
+                <div className="block-16">
                   <figure>
-                    <img
-                      src="images/blog_1.jpg"
-                      alt="Image placeholder"
-                      class="img-fluid rounded"
-                    />
-                    <a
-                      href="https://vimeo.com/channels/staffpicks/93951774"
-                      class="play-button popup-vimeo"
-                    >
-                      <span class="ion-md-play"></span>
-                    </a>
+                    <img src="images/blog_1.jpg" alt="Image placeholder" className="img-fluid rounded" />
+
                   </figure>
                 </div>
               </div>
-              <div class="col-md-1"></div>
-              <div class="col-md-5">
-                <div class="site-section-heading pt-3 mb-4">
-                  <h2 class="text-black">How We Started</h2>
+              <div className="col-md-1"></div>
+              <div className="col-md-5">
+                <div className="site-section-heading pt-3 mb-4">
+                  <h2 className="text-black">How We Started</h2>
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
@@ -63,27 +56,27 @@ class About extends Component {
           </div>
         </div>
 
-        <div class="site-section border-bottom">
-          <div class="container">
-            <div class="row justify-content-center mb-5">
-              <div class="col-md-7 site-section-heading text-center pt-4">
+        <div className="site-section border-bottom">
+          <div className="container">
+            <div className="row justify-content-center mb-5">
+              <div className="col-md-7 site-section-heading text-center pt-4">
                 <h2>The Team</h2>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 col-lg-3">
-                <div class="block-38 text-center">
-                  <div class="block-38-img">
-                    <div class="block-38-header">
+            <div className="row">
+              <div className="col-md-6 col-lg-3">
+                <div className="block-38 text-center">
+                  <div className="block-38-img">
+                    <div className="block-38-header">
                       <img
                         src="images/person_1.jpg"
                         alt="Image placeholder"
-                        class="mb-4"
+                        className="mb-4"
                       />
-                      <h3 class="block-38-heading h4">Elizabeth Graham</h3>
-                      <p class="block-38-subheading">CEO/Co-Founder</p>
+                      <h3 className="block-38-heading h4">Elizabeth Graham</h3>
+                      <p className="block-38-subheading">CEO/Co-Founder</p>
                     </div>
-                    <div class="block-38-body">
+                    <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
@@ -93,19 +86,19 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="block-38 text-center">
-                  <div class="block-38-img">
-                    <div class="block-38-header">
+              <div className="col-md-6 col-lg-3">
+                <div className="block-38 text-center">
+                  <div className="block-38-img">
+                    <div className="block-38-header">
                       <img
                         src="images/person_2.jpg"
                         alt="Image placeholder"
-                        class="mb-4"
+                        className="mb-4"
                       />
-                      <h3 class="block-38-heading h4">Jennifer Greive</h3>
-                      <p class="block-38-subheading">Co-Founder</p>
+                      <h3 className="block-38-heading h4">Jennifer Greive</h3>
+                      <p className="block-38-subheading">Co-Founder</p>
                     </div>
-                    <div class="block-38-body">
+                    <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
@@ -115,19 +108,19 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="block-38 text-center">
-                  <div class="block-38-img">
-                    <div class="block-38-header">
+              <div className="col-md-6 col-lg-3">
+                <div className="block-38 text-center">
+                  <div className="block-38-img">
+                    <div className="block-38-header">
                       <img
                         src="images/person_3.jpg"
                         alt="Image placeholder"
-                        class="mb-4"
+                        className="mb-4"
                       />
-                      <h3 class="block-38-heading h4">Patrick Marx</h3>
-                      <p class="block-38-subheading">Marketing</p>
+                      <h3 className="block-38-heading h4">Patrick Marx</h3>
+                      <p className="block-38-subheading">Marketing</p>
                     </div>
-                    <div class="block-38-body">
+                    <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
@@ -137,19 +130,19 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="block-38 text-center">
-                  <div class="block-38-img">
-                    <div class="block-38-header">
+              <div className="col-md-6 col-lg-3">
+                <div className="block-38 text-center">
+                  <div className="block-38-img">
+                    <div className="block-38-header">
                       <img
                         src="images/person_4.jpg"
                         alt="Image placeholder"
-                        class="mb-4"
+                        className="mb-4"
                       />
-                      <h3 class="block-38-heading h4">Mike Coolbert</h3>
-                      <p class="block-38-subheading">Sales Manager</p>
+                      <h3 className="block-38-heading h4">Mike Coolbert</h3>
+                      <p className="block-38-subheading">Sales Manager</p>
                     </div>
-                    <div class="block-38-body">
+                    <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
@@ -164,21 +157,21 @@ class About extends Component {
         </div>
 
         <div
-          class="site-section site-section-sm site-blocks-1 border-0"
-         
+          className="site-section site-section-sm site-blocks-1 border-0"
+
         >
-          <div class="container">
-            <div class="row">
+          <div className="container">
+            <div className="row">
               <div
-                class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
+                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
                 data-aos="fade-up"
                 data-aos-delay=""
               >
-                <div class="icon mr-4 align-self-start">
-                  <span class="icon-truck"></span>
+                <div className="icon mr-4 align-self-start">
+                  <span className="icon-truck"></span>
                 </div>
-                <div class="text">
-                  <h2 class="text-uppercase">Free Shipping</h2>
+                <div className="text">
+                  <h2 className="text-uppercase">Free Shipping</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus at iaculis quam. Integer accumsan tincidunt
@@ -187,15 +180,15 @@ class About extends Component {
                 </div>
               </div>
               <div
-                class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
+                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
                 data-aos="fade-up"
                 data-aos-delay="100"
               >
-                <div class="icon mr-4 align-self-start">
-                  <span class="icon-refresh2"></span>
+                <div className="icon mr-4 align-self-start">
+                  <span className="icon-refresh2"></span>
                 </div>
-                <div class="text">
-                  <h2 class="text-uppercase">Free Returns</h2>
+                <div className="text">
+                  <h2 className="text-uppercase">Free Returns</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus at iaculis quam. Integer accumsan tincidunt
@@ -204,15 +197,15 @@ class About extends Component {
                 </div>
               </div>
               <div
-                class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
+                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                <div class="icon mr-4 align-self-start">
-                  <span class="icon-help"></span>
+                <div className="icon mr-4 align-self-start">
+                  <span className="icon-help"></span>
                 </div>
-                <div class="text">
-                  <h2 class="text-uppercase">Customer Support</h2>
+                <div className="text">
+                  <h2 className="text-uppercase">Customer Support</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Phasellus at iaculis quam. Integer accumsan tincidunt

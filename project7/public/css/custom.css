@@ -1,0 +1,8 @@
+ul li a.active{
+    font-weight: bold;
+    color:#7971ea     !important;
+  } 
+  ul li a:hover{
+    font-weight: bold;
+    color:#7971ea !important;
+  }
