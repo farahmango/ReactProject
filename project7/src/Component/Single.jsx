@@ -1,12 +1,12 @@
 import React, { Component } from "react";
+import { useParams } from "react-router-dom";
+        
 
 
-class Single extends Component {
-  constructor(props) {
-    super(props);
-  }
-  state = {};
-  render() {
+
+function Single() {
+  let { id } = useParams();
+  
     return <div>
     <div className="bg-light py-3">
       <div className="container">
@@ -61,6 +61,6 @@ class Single extends Component {
     </div>
     </div>;
   }
-}
+
 
 export default Single;

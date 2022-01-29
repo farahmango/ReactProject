@@ -890,7 +890,7 @@ height:60vh ;
   #two:checked ~ .button2 .one{
     width: 15px;
   }
-  #two:checked ~ .button .two{
+  #two:checked ~ .button2 .two{
     width: 35px;
   }
   input[type="radio"]{
@@ -904,12 +904,10 @@ height:60vh ;
   }
   @media (max-width: 600px) {
     .main-card2 .cards2 .card2{
-      /* margin: 20px 0 10px 0; */
+      margin: 20px 0 10px 0;
       width: 100%;
     }
   }
-
-
   
   /* ________________________________________  */
 
