@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import './page.css';
+import { Link } from "react-router-dom";
 
 
 
@@ -30,7 +31,7 @@ class Shop extends Component {
 
   //  pageCount = this.props.item ? this.props.item.length/this.state.perPage : 0 ;
 
-   receivedData() {
+   receivedData() { 
     axios
         .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
         .then(res => {
@@ -40,6 +41,8 @@ class Shop extends Component {
             const postData = slice.map(pd =>
            <React.Fragment>
               <div class="container" key={pd.product_id} >
+              <Link to={"/single-product/" + pd.product_id}>
+
                 <div class="row">
 
                   <div class="col order-last">
@@ -56,6 +59,7 @@ class Shop extends Component {
               </div>
                 
                 </div>
+                </Link>
               </div>
             </React.Fragment>)
 

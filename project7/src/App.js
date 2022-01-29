@@ -12,6 +12,7 @@ import {Header} from "./Component/Header";
 // import Data from "./Component/data";
 import React,{useState,useEffect} from "react";
 import {Api} from './Api'
+import Single from "./Component/Single.jsx";
 
 
 
@@ -43,8 +44,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
-        </Routes>
+          <Route path="/single-product/:id" element={<Single />} />
 
+        </Routes>
         {/* <Data /> */}
         <Footer />
         
