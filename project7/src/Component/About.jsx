@@ -1,6 +1,8 @@
 import react from "react";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import YouTube from 'react-youtube';
+
 
 class About extends Component {
   constructor(props) {
@@ -9,6 +11,14 @@ class About extends Component {
   }
  
   render() {
+    const opts = {
+      height: '390',
+      width: '640',
+      playerVars: {
+     
+        autoplay: 1,
+      },
+    };
     return (
       <React.Fragment>
         <div className="bg-light py-3">
@@ -28,7 +38,7 @@ class About extends Component {
               <div className="col-md-6">
                 <div className="block-16">
                   <figure>
-                    <img src="images/blog_1.jpg" alt="Image placeholder" className="img-fluid rounded" />
+                  <YouTube videoId="liJVSwOiiwg" opts={opts} onReady={this._onReady} />;
 
                   </figure>
                 </div>

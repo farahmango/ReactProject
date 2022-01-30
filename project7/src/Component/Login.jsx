@@ -18,6 +18,7 @@ class Login extends Component {
     };
     this.submitHandler = this.submitHandler.bind(this);
   }
+  
   setValue = (e) => {
     this.setState({ errors: "" });
     const name = e.target.name;
@@ -27,6 +28,8 @@ class Login extends Component {
   };
 
   submitHandler = (event) => {
+    event.preventDefault();
+
     let isValid = true;
     let errors = {};
     let emailRegex =
@@ -39,51 +42,51 @@ class Login extends Component {
         this.setState({
           users: response.data,
         });
-      });
 
-    //Email Validation
-    if (this.state.email === "") {
-      errors["email"] = "This field is required!";
-      isValid = false;
-    } else if (!emailRegex.test(this.state.email)) {
-      errors["email"] = "It is not valid email";
-      isValid = false;
-    }
+        //Email Validation
+        if (this.state.email === "") {
+          errors["email"] = "This field is required!";
+          isValid = false;
+        } else if (!emailRegex.test(this.state.email)) {
+          errors["email"] = "It is not valid email";
+          isValid = false;
+        }
 
-    //password Validation
-    if (this.state.password === "") {
-      errors["password"] = "This field is required!";
-      isValid = false;
-    } else if (!passRegex.test(this.state.password)) {
-      errors["password"] = "It should be more than 8 character";
-      isValid = false;
-    }
+        //password Validation
+        if (this.state.password === "") {
+          errors["password"] = "This field is required!";
+          isValid = false;
+        } else if (!passRegex.test(this.state.password)) {
+          errors["password"] = "It should be more than 8 character";
+          isValid = false;
+        }
 
-    let user = this.state.users.filter((user) => {
-      if (
-        user.email == this.state.email &&
-        user.password == this.state.password
-      ) {
-        isValid = true;
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        localStorage.setItem("loggedIn", isValid);
-        this.setState({
-          loggedIn: true,
+        let user = this.state.users.filter((user) => {
+          if (
+            user.email == this.state.email &&
+            user.password == this.state.password
+          ) {
+            isValid = true;
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            localStorage.setItem("loggedIn", isValid);
+            this.setState({
+              loggedIn: true,
+            });
+          } else {
+            isValid = false;
+          }
         });
-      } else {
-        isValid = false;
-      }
-    });
-    this.setState({ errors: errors });
-
-    
-      event.preventDefault();
-    
+        this.setState({ errors: errors });
+      });
   };
   render() {
     return (
       <React.Fragment>
-        {this.state.loggedIn === true ? <Navigate to="/shop" replace={true} /> : ""}
+        {this.state.loggedIn === true ? (
+          <Navigate to="/shop" replace={true} />
+        ) : (
+          ""
+        )}
         <section className="sign-in">
           <div className="container signup">
             <div className="signin-content">
@@ -120,7 +123,7 @@ class Login extends Component {
                       {this.state.errors["email"]}
                     </small>
                   </div>
-                 
+
                   <div className="form-group">
                     <label htmlFor="your_pass" className="icons">
                       <i className="zmdi zmdi-lock"></i>

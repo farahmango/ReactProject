@@ -98,7 +98,7 @@ if (this.state.address === "") {
         }).then((response) => {
           console.log(response);
           this.setState({redirect: true})
-      });;
+      });
 
     }
   };

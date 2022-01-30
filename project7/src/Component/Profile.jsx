@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { NavLink } from "react-router-dom";
 
 export class Profile extends Component {
  
@@ -10,13 +10,7 @@ export class Profile extends Component {
 <div class="container4">
     <div class="main-body4">
     
-          {/* <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
-          </nav>
-       */}
+        
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card4">
@@ -27,7 +21,9 @@ export class Profile extends Component {
                       <h4>John Doe</h4>
                       <p class="text-secondary mb-1">Full Stack Developer</p>
                       <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                      <button class="btn btn-dark b4">Follow</button>
+                      <button class="btn btn-dark b4">
+                <NavLink to="/logout" className="text-white">Logout</NavLink>
+             </button>
                       <button class="btn btn-outline-dark b4">Message</button>
                     </div>
                   </div>

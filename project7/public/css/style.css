@@ -803,7 +803,7 @@ height:60vh ;
     width: 100%;
     overflow: hidden;
     padding: 80px 0;
-    margin-left: 300px;
+    margin: auto;
   }
   .container2 .main-card2{
     display: flex;

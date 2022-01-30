@@ -1,7 +1,7 @@
 <?php
 include_once ("core.php");
 $conn       = mysqli_connect("localhost", "root", "", "react_ecommerce");
-$sql        = "SELECT * FROM products" ;
+$sql        = "SELECT * FROM products " ;
 $result     = mysqli_query($conn, $sql);
 $json_array = array();
 while($row  = mysqli_fetch_assoc($result)){
