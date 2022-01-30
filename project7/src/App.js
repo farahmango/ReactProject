@@ -8,11 +8,28 @@ import Shop from "./Component/Shop.jsx";
 import About from "./Component/About.jsx";
 import {Body} from "./Component/Body";
 import {Profile} from "./Component/Profile.jsx";
-import React, { useState } from 'react';
+import {Header} from "./Component/Header";
+// import Data from "./Component/data";
+import React,{useState,useEffect} from "react";
 import {Api} from './Api'
+import Single from "./Component/Single.jsx";
+import Logout from "./Component/Logout.jsx";
+
+
+
 function App() {
 
-  
+  const [item, setItem] = useState([]);
+    useEffect(()=>{
+      fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
+      .then(res => res.json())
+      .then(
+        (result)=>{
+          setItem(result);
+        }
+      )
+    }, []);
+    
 
   return (
     <React.Fragment>
@@ -24,11 +41,15 @@ function App() {
         <Route path="/weather" element={<Api />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
-          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop" element={<Shop item={item}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/single-product/:id" element={<Single />} />
+
         </Routes>
+        {/* <Data /> */}
         <Footer />
         
       </div> 

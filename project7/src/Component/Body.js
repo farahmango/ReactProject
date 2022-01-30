@@ -126,7 +126,7 @@ export class Body extends Component {
           style={{ backgroundImage: "url(/frutes/i1.jpg)", marginTop: "50px" }}
         >
           <div className="container">
-            <div style={{ padding: "200px 0 0 0" }}>
+            <div style={{ padding: "0 0 0" }}>
               <div className="col-md-12 text-center text-md-left pt-5 pt-md-0 text-md-center">
                 <h1
                   className="mb-2  "

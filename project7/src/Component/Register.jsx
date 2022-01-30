@@ -98,7 +98,7 @@ if (this.state.address === "") {
         }).then((response) => {
           console.log(response);
           this.setState({redirect: true})
-      });;
+      });
 
     }
   };
@@ -119,7 +119,7 @@ if (this.state.address === "") {
                   onSubmit={this.submitHandler}
                 >
                   <div className="form-group">
-                    <label htmlFor="name">
+                    <label htmlFor="name" className="icons">
                       <i className="zmdi zmdi-account material-icons-name"></i>
                     </label>
                     <input
@@ -134,7 +134,7 @@ if (this.state.address === "") {
                     </small>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">
+                    <label htmlFor="email" className="icons">
                       <i className="zmdi zmdi-email"></i>
                     </label>
                     <input
@@ -150,8 +150,8 @@ if (this.state.address === "") {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="your_name">
-                    <i class="fas fa-phone"></i>
+                    <label htmlFor="your_name" className="icons">
+                    <i className="fas fa-phone"></i>
                     </label>
                     <input
                       type="phone"
@@ -166,8 +166,8 @@ if (this.state.address === "") {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="your_name">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <label htmlFor="your_name" className="icons">
+                    <i className="fas fa-map-marker-alt"></i>
                     </label>
                     <input
                       type="address"
@@ -182,7 +182,7 @@ if (this.state.address === "") {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="pass">
+                    <label htmlFor="pass" className="icons">
                       <i className="zmdi zmdi-lock"></i>
                     </label>
                     <input
@@ -197,7 +197,7 @@ if (this.state.address === "") {
                     </small>
                   </div>
                   <div className="form-group">
-                    <label htmlFor="re-pass">
+                    <label htmlFor="re-pass" className="icons">
                       <i className="zmdi zmdi-lock-outline"></i>
                     </label>
                     <input

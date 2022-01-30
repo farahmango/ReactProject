@@ -15,12 +15,11 @@ if (isset($postdata) && !empty($postdata)) {
     $address  = $request->address;
     $sql      = "INSERT INTO users (name,email,password,phone,address) VALUES
                 ('$name','$email','$password','$phone','$address')";
-    $sql      = "INSERT INTO users (name,email,password) VALUES
-                ('$name','$email','$password')";
 
     if (mysqli_query($db, $sql)) {
         http_response_code(201);
     } else {
         http_response_code(422);
     }
+  
 }
