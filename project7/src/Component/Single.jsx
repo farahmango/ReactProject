@@ -1,8 +1,64 @@
+import { logDOM } from "@testing-library/react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Single() {
   let { id } = useParams();
+  const [count, setCount] = useState(0);
+
+  let incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  let decrementCount = () => {
+    setCount(count - 1);
+  };
+
+  let products = JSON.parse(localStorage.getItem("products"));
+  //console.log(products);
+  let product = products.filter((p) => {
+    if (p.product_id === id) {
+      return p;
+    }
+  });
+  // console.log(product[0].product_name);
+  // console.log(product);
+
+  const addToCartHandler = () => {
+    //sessionStorage.clear();
+    
+    if (sessionStorage.getItem("cart") == null) {
+      product[0].product_quantity = count;
+      let newProduct = [product];
+      
+      sessionStorage.setItem("cart", JSON.stringify(newProduct));
+    } else {
+      let cart = JSON.parse(sessionStorage.getItem("cart"));
+     // console.log(cart);
+
+      let exist = cart.filter((p) => {
+        if (p[0].product_id == product[0].product_id) {
+          return true;
+        }
+      });
+      // console.log(exist );
+      //  console.log();
+      if(exist.length !== 0)
+      { cart.map((p) => {
+        if (p[0].product_id == product[0].product_id) {
+          p[0].product_quantity = Number(p[0].product_quantity)+count;
+        }
+      });
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+    }else
+      {
+        // console.log(cart);
+        cart = [...cart, product];
+      sessionStorage.setItem("cart", JSON.stringify(cart));}
+    }
+  };
 
   return (
     <div>
@@ -11,7 +67,7 @@ function Single() {
           <div className="row">
             <div className="col-md-12 mb-0">
               <a href="index.html">Home</a> <span className="mx-2 mb-0">/</span>{" "}
-              <strong className="text-black">Tank Top T-Shirt</strong>
+              <strong className="text-black">{product[0].product_name}</strong>
             </div>
           </div>
         </div>
@@ -21,100 +77,59 @@ function Single() {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <img src="images/cloth_1.jpg" alt="Image" className="img-fluid" />
+              <img
+                src="../images/person_1.jpg"
+                alt={product[0].product_name}
+                className="img-fluid"
+              />
             </div>
             <div className="col-md-6">
-              <h2 className="text-black">Tank Top T-Shirt</h2>
+              <h2 className="text-black">{product[0].product_name} </h2>
+
+              <p className="my-4">{product[0].product_description}</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Pariatur, vitae, explicabo? Incidunt facere, natus soluta
-                dolores iusto! Molestiae expedita veritatis nesciunt doloremque
-                sint asperiores fuga voluptas, distinctio, aperiam, ratione
-                dolore.
+                <strong className="text-primary h4">
+                  $ {product[0].product_price}
+                </strong>
               </p>
-              <p className="mb-4">
-                Ex numquam veritatis debitis minima quo error quam eos dolorum
-                quidem perferendis. Quos repellat dignissimos minus, eveniet nam
-                voluptatibus molestias omnis reiciendis perspiciatis illum hic
-                magni iste, velit aperiam quis.
-              </p>
-              <p>
-                <strong className="text-primary h4">$50.00</strong>
-              </p>
-              <div className="mb-1 d-flex">
-                <label htmlFor="option-sm" className="d-flex mr-3 mb-3">
-                  <span
-                    className="d-inline-block mr-2"
-                    style={{ top: "-2px", position: "relative" }}
-                  >
-                    <input type="radio" id="option-sm" name="shop-sizes" />
-                  </span>{" "}
-                  <span className="d-inline-block text-black">Small</span>
-                </label>
-                <label htmlFor="option-md" className="d-flex mr-3 mb-3">
-                  <span
-                    className="d-inline-block mr-2"
-                    style={{ top: "-2px", position: "relative" }}
-                  >
-                    <input type="radio" id="option-md" name="shop-sizes" />
-                  </span>{" "}
-                  <span className="d-inline-block text-black">Medium</span>
-                </label>
-                <label htmlFor="option-lg" className="d-flex mr-3 mb-3">
-                  <span
-                    className="d-inline-block mr-2"
-                    style={{ top: "-2px", position: "relative" }}
-                  >
-                    <input type="radio" id="option-lg" name="shop-sizes" />
-                  </span>{" "}
-                  <span className="d-inline-block text-black">Large</span>
-                </label>
-                <label htmlFor="option-xl" className="d-flex mr-3 mb-3">
-                  <span
-                    className="d-inline-block mr-2"
-                    style={{ top: "-2px", position: "relative" }}
-                  >
-                    <input type="radio" id="option-xl" name="shop-sizes" />
-                  </span>{" "}
-                  <span className="d-inline-block text-black">
-                    {" "}
-                    Extra Large
-                  </span>
-                </label>
-              </div>
-              <div className="mb-5">
+
+              <div className="my-4">
                 <div className="input-group mb-3" style={{ maxWidth: "120px" }}>
-                  <div className="input-group-prepend">
+                  <div className="input-group-prepend" onClick={decrementCount}>
                     <button
                       className="btn btn-outline-primary js-btn-minus"
                       type="button"
                     >
-                      &minus;
+                      <i class="fas fa-minus"></i>
                     </button>
                   </div>
                   <input
                     type="text"
                     className="form-control text-center"
-                    value="1"
+                    value={count}
                     placeholder=""
                     aria-label="Example text with button addon"
                     aria-describedby="button-addon1"
                   />
-                  <div className="input-group-append">
+                  <div className="input-group-append" onClick={incrementCount}>
                     <button
                       className="btn btn-outline-primary js-btn-plus"
                       type="button"
                     >
-                      &plus;
+                      <i class="fas fa-plus"></i>
                     </button>
                   </div>
                 </div>
               </div>
-              <p>
-                <a href="cart.html" className="buy-now btn btn-sm btn-primary">
+              <button
+                name="addToCart"
+                className="buy-now btn btn-sm btn-primary"
+                onClick={addToCartHandler}
+              >
+                <Link to="/cart" className="text-white">
                   Add To Cart
-                </a>
-              </p>
+                </Link>
+              </button>
             </div>
           </div>
         </div>

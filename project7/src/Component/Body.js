@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Header } from "../Component/Header";
 import { Test } from "../Component/Testemonial";
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 
 export class Body extends Component {
   render() {
@@ -21,7 +21,7 @@ export class Body extends Component {
 
           <div className="container">
             <div className="row">
-              <div className="col order-last">
+              <div className="col d-flex flex-column align-items-center order-last">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p01.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -33,7 +33,7 @@ export class Body extends Component {
                 </div>
               </div>
 
-              <div className="col order-first">
+              <div className="col d-flex flex-column align-items-center order-first">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p02.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -44,7 +44,7 @@ export class Body extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col order-first">
+              <div className="col d-flex flex-column align-items-center order-first">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p03.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -55,7 +55,7 @@ export class Body extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col order-first">
+              <div className="col d-flex flex-column align-items-center order-first">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p04.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -71,7 +71,7 @@ export class Body extends Component {
 
           <div className="container">
             <div className="row">
-              <div className="col order-last">
+              <div className="col d-flex flex-column align-items-center order-last">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p05.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -82,7 +82,7 @@ export class Body extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col">
+              <div className="col d-flex flex-column align-items-center">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p11.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -93,7 +93,7 @@ export class Body extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col order-first">
+              <div className="col d-flex flex-column align-items-center order-first">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p07.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -104,7 +104,7 @@ export class Body extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col order-first">
+              <div className="col d-flex flex-column align-items-center order-first">
                 <div className="card" style={{ width: "15rem", border: "none" }}>
                   <img src="/frutes/p08.jpg" className="card-img-top" alt="..." />
                   <div style={{ height: "12vh" }}>
@@ -122,12 +122,12 @@ export class Body extends Component {
         {/* header 2  */}
 
         <div
-          className="site-blocks-cover2"
+          className="site-blocks-cover2 d-flex flex-column justify-content-center"
           style={{ backgroundImage: "url(/frutes/i1.jpg)", marginTop: "50px" }}
         >
-          <div className="container">
-            <div style={{ padding: "0 0 0" }}>
-              <div className="col-md-12 text-center text-md-left pt-5 pt-md-0 text-md-center">
+          <div className="container ">
+          
+              <div className="col-md-12 text-center  text-md-left pt-5 pt-md-0 text-md-center">
                 <h1
                   className="mb-2  "
                   style={{
@@ -135,26 +135,22 @@ export class Body extends Component {
                     fontWeight: 400,
                     textShadow: "1px 1px 2px black",
                     color: " #000",
-                  }}
-                >
+                  }}>
                   Buy Exotic Fruit Online Today
                 </h1>
                 <div className="intro-text text-center text-md-center">
                   <p className="mb-4" style={{ fontSize: "20px", color: "black" }}>
                     See all the juicy, sweet and ready to eat exotic fruits we
-                    currently have in stock{" "}
+                    currently have in stock
                   </p>
                   <p>
-                    {/*  */}
                     <NavLink to="/shop"  className="btn btn-sm btn-dark">
-                    
                         Shop Now
-                     
                     </NavLink>
                   </p>
                 </div>
               </div>
-            </div>
+            
           </div>
         </div>
 
@@ -162,8 +158,7 @@ export class Body extends Component {
 
         <div
           className="col-md-12 site-section-heading text-center pt-4"
-          style={{ margin: "100px 0 20px 0" }}
-        >
+          style={{ margin: "100px 0 20px 0" }}>
           <h2>New Fruites Added Weakly</h2>
           <p style={{ fontSize: "20px" }}>
             With over 3,000 different fruits on the planet were certain you
@@ -176,9 +171,9 @@ export class Body extends Component {
 
         <div className="container">
           <div className="row">
-            <div className="col order-last">
+            <div className="col d-flex flex-column align-items-center order-last">
               <div className="card" style={{ width: "15rem", border: "none" }}>
-                <img src="/frutes/p01.jpg" className="card-img-top" alt="..." />
+                <Link to="shop"><img src="/frutes/p01.jpg" className="card-img-top" alt="..." /></Link>
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
                     Melon - Pepino
@@ -188,7 +183,7 @@ export class Body extends Component {
               </div>
             </div>
 
-            <div className="col order-first">
+            <div className="col d-flex flex-column align-items-center  order-first">
               <div className="card" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p02.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>
@@ -199,7 +194,7 @@ export class Body extends Component {
                 </div>
               </div>
             </div>
-            <div className="col order-first">
+            <div className="col d-flex flex-column align-items-center order-first">
               <div className="card" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p03.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>
@@ -210,7 +205,7 @@ export class Body extends Component {
                 </div>
               </div>
             </div>
-            <div className="col order-first">
+            <div className="col d-flex flex-column align-items-center order-first">
               <div className="card" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p04.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>

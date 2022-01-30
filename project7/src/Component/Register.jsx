@@ -30,13 +30,13 @@ class Register extends Component {
   };
 
   submitHandler = (event) => {
-     
+    event.preventDefault();
+
     let isValid = true;
     let errors = {};
     let emailRegex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-    event.preventDefault();
     //User Name Validation
     if (this.state.name === "") {
       isValid = false;
