@@ -47,8 +47,8 @@ class Shop extends Component {
 
                   <div class="col order-last">
                   <div class="card" style={{ width: '15rem' ,border:'none' }}>
-                    <img src="/frutes/p01.jpg" class="card-img-top" alt="..."  />
-                    <div  src={pd.image}>
+                    <img src={pd.image} class="card-img-top" alt="..."  />
+                    <div>
                     <h5 class="card-title">{pd.product_name}</h5>
                       <p>
                       {pd.product_description}

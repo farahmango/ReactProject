@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
         
 
 
@@ -7,6 +8,22 @@ import { useParams } from "react-router-dom";
 function Single() {
   let { id } = useParams();
   
+  // axios
+  //       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
+  //       .then(res => {
+
+  //           const data = res.data;
+  //           let card_id = data.filter((data) => {
+  //             if (data.product_id == id){
+  //               return data;
+  //             }
+  //           });
+  //       });
+
+ 
+  // sessionStorage.setItem("productId", id);
+  // window.sessionStorage.setItem("productId", id);
+  localStorage.setItem("productId", id);
     return <div>
     <div className="bg-light py-3">
       <div className="container">
