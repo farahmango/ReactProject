@@ -1,15 +1,23 @@
 <?php
-session_start();
-$id=$_SESSION["productId"];
-include_once ("core.php");
 
-$conn       = mysqli_connect("localhost", "root", "", "react_ecommerce");
-$sql        = "SELECT * FROM products where product_id = $id" ;
-$result     = mysqli_query($conn, $sql);
-$json_array = array();
-while($row  = mysqli_fetch_assoc($result)){
-	$json_array[] = $row;
+require '../../connect.php';
+header("Access-Control-Allow-Origin: http://localhost:3000");
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+$postdata = file_get_contents("php://input");
+echo $postdata ;
+if (isset($postdata) && !empty($postdata)) {
+    $sql      = "SELECT * FROM products where product_id = $postdata ";
+	$result     = mysqli_query($db, $sql);
+	$row = mysqli_fetch_assoc($result);
+	echo $row;
+
+    if (mysqli_query($db, $sql)) {
+        http_response_code(201);
+    } else {
+        http_response_code(422);
+    }
 }
-echo json_encode($json_array);
-echo $id;
+
 ?>
