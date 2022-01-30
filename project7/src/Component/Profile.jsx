@@ -27,7 +27,10 @@ let user =JSON.parse(localStorage.getItem('currentUser'))
                       <button class="btn btn-dark b4">
                 <NavLink to="/logout" className="text-white">Logout</NavLink>
              </button>
-                      <button class="btn btn-outline-dark b4">Message</button>
+                      <button class="btn btn-dark b4">
+                      <NavLink to="/weather" className="text-white">See Weather</NavLink>
+
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -64,15 +67,7 @@ let user =JSON.parse(localStorage.getItem('currentUser'))
                     {user.phone}
                   </div>
                   </div>
-                  <hr/>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
-                    </div>
-                  </div>
+               
                   <hr/>
                   <div class="row">
                     <div class="col-sm-3">

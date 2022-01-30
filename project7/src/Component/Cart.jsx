@@ -60,7 +60,7 @@ class Cart extends Component {
                           >
                             <div className="input-group-prepend">
                               <button
-                                className="btn btn-outline-primary js-btn-minus"
+                                className="btn btn-outline-dark js-btn-minus"
                                 type="button"
                               >
                                 &minus;
@@ -76,7 +76,7 @@ class Cart extends Component {
                             />
                             <div className="input-group-append">
                               <button
-                                className="btn btn-outline-primary js-btn-plus"
+                                className="btn btn-outline-dark js-btn-plus"
                                 type="button"
                               >
                                 +
@@ -86,7 +86,7 @@ class Cart extends Component {
                         </td>
                         <td>$49.00</td>
                         <td>
-                          <a href="#" className="btn btn-primary btn-sm">
+                          <a href="#" className="btn btn-dark btn-sm">
                             X
                           </a>
                         </td>
@@ -111,7 +111,7 @@ class Cart extends Component {
                           >
                             <div className="input-group-prepend">
                               <button
-                                className="btn btn-outline-primary js-btn-minus"
+                                className="btn btn-outline-dark js-btn-minus"
                                 type="button"
                               >
                                 &minus;
@@ -127,7 +127,7 @@ class Cart extends Component {
                             />
                             <div className="input-group-append">
                               <button
-                                className="btn btn-outline-primary js-btn-plus"
+                                className="btn btn-outline-dark js-btn-plus"
                                 type="button"
                               >
                                 +
@@ -137,7 +137,7 @@ class Cart extends Component {
                         </td>
                         <td>$49.00</td>
                         <td>
-                          <a href="#" className="btn btn-primary btn-sm">
+                          <a href="#" className="btn btn-dark btn-sm">
                             X
                           </a>
                         </td>
@@ -152,12 +152,12 @@ class Cart extends Component {
               <div className="col-md-6">
                 <div className="row mb-5">
                   <div className="col-md-6 mb-3 mb-md-0">
-                    <button className="btn btn-primary btn-sm btn-block">
+                    <button className="btn btn-dark btn-sm btn-block">
                       Update Cart
                     </button>
                   </div>
                   <div className="col-md-6">
-                    <button className="btn btn-outline-primary btn-sm btn-block">
+                    <button className="btn btn-outline-dark btn-sm btn-block">
                       Continue Shopping
                     </button>
                   </div>
@@ -178,7 +178,7 @@ class Cart extends Component {
                     />
                   </div>
                   <div className="col-md-4">
-                    <button className="btn btn-primary btn-sm">
+                    <button className="btn btn-dark btn-sm">
                       Apply Coupon
                     </button>
                   </div>
@@ -214,7 +214,7 @@ class Cart extends Component {
                     <div className="row">
                       <div className="col-md-12">
                         <button
-                          className="btn btn-primary btn-lg py-3 btn-block"
+                          className="btn btn-dark btn-lg py-3 btn-block"
                           onclick="window.location='checkout.html'"
                         >
                           Proceed To Checkout
