@@ -210,8 +210,8 @@ export class Test extends Component {
           </div>
         </div>
         <div className="button2">
-          <label for="one" className=" active one" style={{ backgroundColor:'black' }}> </label>
-          <label for="two" className="two"> </label>
+          <label htmlFor="one" className=" active one" style={{ backgroundColor:'black' }}> </label>
+          <label htmlFor="two" className="two"> </label>
         </div>
       </div>
 </React.Fragment>

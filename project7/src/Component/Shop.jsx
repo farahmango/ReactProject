@@ -5,11 +5,6 @@ import "./page.css";
 import { Link } from "react-router-dom";
 
 class Shop extends Component {
-  // pageCount = this.props.item? Math.ciel(this.props.item.length)/10 : 0 ;
-
-  // constructor(props) {
-  //   super(props);
-  // }
 
   constructor(props) {
     super(props);
@@ -18,42 +13,44 @@ class Shop extends Component {
       data: [],
       perPage: 9,
       currentPage: 0,
+      
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  //  pageCount = this.props.item ? this.props.item.length/this.state.perPage : 0 ;
+  
 
   receivedData() {
     axios
       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
       .then((res) => {
         const data = res.data;
+        localStorage.setItem("products", JSON.stringify(data));
         const slice = data.slice(
           this.state.offset,
           this.state.offset + this.state.perPage
         );
         const postData = slice.map((pd) => (
-          <React.Fragment>
+         
             <div
-              class="col-lg-4 col-sm-5  mb-3 d-flex flex-column justify-content-center"
+              className="col-lg-4 col-sm-5  mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}
             >
               <Link to={"/single-product/" + pd.product_id}>
-                <div class="row ">
-                  <div class="">
+                <div className="row ">
+                  <div className="">
                     <div
-                      class="card"
+                      className="card"
                       style={{ width: "15rem", border: "none" }}
                     >
                       <img
                         src="images/cloth_1.jpg"
-                        class="card-img-top m-auto"
+                        className="card-img-top m-auto"
                         alt="..."
                       />
-                      {/* <img src={pd.image} class="card-img-top" alt="..." /> */}
+                      {/* <img src={pd.image} className="card-img-top" alt="..." /> */}
                       <div>
-                        <h5 class="card-title">{pd.product_name}</h5>
+                        <h5 className="card-title">{pd.product_name}</h5>
                         <p>{pd.product_description}</p>
                         {pd.product_price}
                       </div>
@@ -62,12 +59,11 @@ class Shop extends Component {
                 </div>
               </Link>
             </div>
-          </React.Fragment>
+        
         ));
 
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
-
           postData,
         });
       });
@@ -130,11 +126,11 @@ class Shop extends Component {
                   </div>
 
                   <div className="row">
-                    <div className="col-md-12 text-center">
+                    <div className="col-md-12 text-center d-flex flex-column">
                       <div className="d-flex flex-wrap justify-content-between">
                         {this.state.postData}
                       </div>
-                      <div className="m-auto w-50">
+                      <div className="align-self-center ">
                         <ReactPaginate
                           previousLabel={"prev"}
                           nextLabel={"next"}
