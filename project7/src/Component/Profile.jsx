@@ -52,7 +52,7 @@ export class Profile extends Component {
                           Logout
                         </NavLink>
                       </button>
-                      <button className="btn btn-outline-dark b4">
+                      <button className="btn btn-dark b4">
                       <NavLink to="/weather" className="text-white">
                           See The Weather
                         </NavLink>                     
@@ -87,7 +87,7 @@ export class Profile extends Component {
                   </div>
                   <hr />
               
-                  <hr />
+                 
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Address</h6>
