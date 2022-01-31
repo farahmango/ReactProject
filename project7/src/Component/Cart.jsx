@@ -56,7 +56,7 @@ class Cart extends Component {
         <td> $ {product[0].product_price * product[0].product_quantity}</td>
         <td>
           <button
-            className="btn btn-primary btn-sm"
+            className="btn btn-dark btn-sm"
             onClick={this.deleteItem.bind(this, product[0].product_id)}> X </button>
         </td>
       </tr>
@@ -227,14 +227,14 @@ class Cart extends Component {
                     <div className="row">
                       <div className="col-md-12">
                         <button
-                          className="btn btn-primary btn-lg py-3 btn-block"
+                          className="btn btn-dark btn-lg py-3 btn-block"
                           onClick={this.checkOutHandler}
                         >
                           Proceed To Checkout
                         </button>
                         <Link
                           to="/shop"
-                          className="btn btn-primary btn-lg py-3 btn-block"
+                          className="btn btn-dark btn-lg py-3 btn-block"
                         >
                           Continue Shopping
                         </Link>

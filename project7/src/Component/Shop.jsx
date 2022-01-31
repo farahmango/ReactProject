@@ -3,6 +3,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import "./page.css";
 import { Link } from "react-router-dom";
+import FormData from "form-data";
 
 class Shop extends Component {
 
@@ -13,12 +14,18 @@ class Shop extends Component {
       data: [],
       perPage: 9,
       currentPage: 0,
-      
+      search:null,
+      page : ''
+   
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  
+  searchSpace=(event)=>{
+    let keyword = event.target.value;
+    this.setState({search:keyword})
+  }
+
 
   receivedData() {
     axios
@@ -44,7 +51,7 @@ class Shop extends Component {
                       style={{ width: "15rem", border: "none" }}
                     >
                       <img
-                        src="images/cloth_1.jpg"
+                        src="../images/cloth_1.jpg"
                         className="card-img-top m-auto"
                         alt="..."
                       />
@@ -61,6 +68,31 @@ class Shop extends Component {
             </div>
         
         ));
+
+////////////////////////////////
+
+// const items = postData.filter((data)=>{
+//   if(this.state.search == null)
+//       return data
+//   else if(data.product_name.toLowerCase().includes(this.state.search.toLowerCase())){
+//       return data
+//   }
+// }).map(data=>{
+//   return(
+//   <div>
+//     <ul>
+//       <li style={{position:'relative',left:'0vh'}}>
+//         <span>{data.product_name}</span>
+       
+//       </li>
+//     </ul>
+//   </div>
+//   )
+// })
+
+
+///////////////////////
+
 
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
@@ -85,10 +117,35 @@ class Shop extends Component {
   };
 
   componentDidMount() {
-    this.receivedData();
+    if(this.state.search === null){
+      this.receivedData();
+    } 
   }
 
   render() {
+    let product = JSON.parse(localStorage.getItem("products"));
+
+    const items = product.filter((data)=>{
+      if(this.state.search == null)
+      return    this.state.page
+       else if(data.product_name.toLowerCase().includes(this.state.search.toLowerCase())){
+          return data
+      }
+    }).map(data=>{
+      return(
+      <div  className="border">
+        <ul className='list-group'>
+    
+          <Link to={"/single-product/" +data.product_id}>
+          <li style={{position:'relative',left:'0vh'}} className="list-group-item">
+            {data.product_name}
+          </li>
+         </Link>
+        </ul>
+      </div>
+      )
+    })
+
     return (
       <div>
         <div className="site-wrap">
@@ -118,14 +175,16 @@ class Shop extends Component {
                               type="text"
                               className="form-control border-0"
                               placeholder="Search"
+                              onChange={(e)=>this.searchSpace(e)}
                             />
+                            {items}
                           </form>
                      
                       </div>
                     </div>
                   </div>
 
-                  <div className="row">
+                  <div  className="row">
                     <div className="col-md-12 text-center d-flex flex-column">
                       <div className="d-flex flex-wrap justify-content-between">
                         {this.state.postData}
@@ -156,5 +215,4 @@ class Shop extends Component {
     );
   }
 }
-
 export default Shop;
