@@ -13,7 +13,7 @@ export class Header extends Component {
           <div className="intro-text text-center text-md-center">
             <p className="mb-4 h2" >Juicy, sweet and ready to eat exotic fruit delivered to your door   </p>
             <p>
-              <NavLink to="/shop" >Shop Now</NavLink>  
+              <NavLink to="/shop" className="btn btn-sm btn-dark"> Shop Now</NavLink>  
             </p>
           </div>
         </div>

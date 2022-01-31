@@ -11,8 +11,8 @@ class About extends Component {
   }
   render() {
     const opts = {
-      height: '390',
-      width: '640',
+      height: "400",
+      width: "100%",
       playerVars: {
         autoplay: 1,
       },
@@ -74,7 +74,7 @@ class About extends Component {
                     <div className="block-38-header">
                       <img
                         src="images/person_1.jpg"
-                        alt="Image placeholder"
+                        alt="farah"
                         className="mb-4"
                       />
                       <h3 className="block-38-heading h4">Farah</h3>
@@ -96,7 +96,7 @@ class About extends Component {
                     <div className="block-38-header">
                       <img
                         src="images/person_2.jpg"
-                        alt="Image placeholder"
+                        alt="Ghosoun"
                         className="mb-4"
                       />
                       <h3 className="block-38-heading h4"> Ghosoun</h3>
@@ -112,13 +112,13 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-4">
+              <div className="col-md-6 col-lg-4 mt-5 align-items-center">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_3.jpg"
-                        alt="Image placeholder"
+                        alt="Osaid"
                         className="mb-4"
                       />
                       <h3 className="block-38-heading h4">Osaid</h3>
@@ -137,14 +137,14 @@ class About extends Component {
            
             </div>
 
-            <div className="row mt-5" >
+            <div className="row mt-5 " >
               <div className="col-md-6 col-lg-6">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_2.jpg"
-                        alt="Image placeholder"
+                        alt="Saja"
                         className="mb-4"
                       />
                       <h3 className="block-38-heading h4">Saja</h3>
@@ -167,7 +167,7 @@ class About extends Component {
                     <div className="block-38-header">
                       <img
                         src="images/person_4.jpg"
-                        alt="Image placeholder"
+                        alt="Omar"
                         className="mb-4"
                       />
                       <h3 className="block-38-heading h4">Omar</h3>

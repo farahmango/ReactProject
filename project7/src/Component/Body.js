@@ -19,7 +19,7 @@ export class Body extends Component {
         const postData = data.slice(0, 8).map((pd) => (
          
             <div
-              className="col-lg-3 col-sm-5  mb-3 d-flex flex-column align-items-center"
+              className="col-lg-3 col-sm-5 btn  mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}
             >
               <Link to={"/single-product/" + pd.product_id}>
@@ -129,8 +129,8 @@ export class Body extends Component {
         <div className="container">
           <div className="row">
             <div className="col d-flex flex-column align-items-center order-last">
-              <div className="card" style={{ width: "15rem", border: "none" }}>
-                <Link to="shop"><img src="/frutes/p01.jpg" className="card-img-top" alt="..." /></Link>
+              <div className="card btn" style={{ width: "15rem", border: "none" }}>
+                <Link to="shop" ><img src="/frutes/p01.jpg" className="card-img-top" alt="..." /></Link>
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
                     Melon - Pepino
@@ -141,18 +141,18 @@ export class Body extends Component {
             </div>
 
             <div className="col d-flex flex-column align-items-center  order-first">
-              <div className="card" style={{ width: "15rem", border: "none" }}>
+              <div className="card btn" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p02.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
-                    Plum-Marian/Mango
+                    Plum-Marian
                   </h5>
                   <p style={{ color: "black", fontSize: 20 }}>£3.95 </p>
                 </div>
               </div>
             </div>
             <div className="col d-flex flex-column align-items-center order-first">
-              <div className="card" style={{ width: "15rem", border: "none" }}>
+              <div className="card btn" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p03.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
@@ -163,7 +163,7 @@ export class Body extends Component {
               </div>
             </div>
             <div className="col d-flex flex-column align-items-center order-first">
-              <div className="card" style={{ width: "15rem", border: "none" }}>
+              <div className="card btn" style={{ width: "15rem", border: "none" }}>
                 <img src="/frutes/p04.jpg" className="card-img-top" alt="..." />
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>

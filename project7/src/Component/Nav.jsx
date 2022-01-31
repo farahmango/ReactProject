@@ -11,19 +11,26 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 export class Nav extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
       rerender: true,
+      // cartCounter:
      
     };
   }
-  componentDidMount() {
-    this.setState({
-      rerender: localStorage.getItem("loggedIn"),
-    });
+  // componentDidMount() {
+  //   var cart = cart.map(element => {
+  //     count++;
+  //   })
     
-  }
+  // }
+
+  // componentWillUnmount() {
+  //   this._isMounted = false;
+  // }
 
   render() {
     return (
@@ -55,12 +62,12 @@ export class Nav extends Component {
                       {sessionStorage.getItem("cart") === null ? (
                         <NavLink to="/empty" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count">2</span>
+                          <span className="count">{this.state.cartCounter}</span>
                         </NavLink>
                       ) : (
                         <NavLink to="/cart" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count">2</span>
+                          <span className="count">{this.state.cartCounter}</span>
                         </NavLink>
                       )}
                     </li>

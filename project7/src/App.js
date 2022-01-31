@@ -19,7 +19,7 @@ import CheckOut from "./Component/CheckOut.jsx";
 
 function App() {
   const [item, setItem] = useState([]);
-  const [loggedIn, setloggedIn] = useState({});
+ 
 
   useEffect(() => {
     fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
@@ -28,8 +28,7 @@ function App() {
         setItem(result);
       });
   }, []);
-  
-  
+
  
   return (
     <React.Fragment>
