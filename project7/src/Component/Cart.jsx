@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
 import axios from "axios";
-
 class Cart extends Component {
   state = {
     count: 0,
@@ -13,6 +12,8 @@ class Cart extends Component {
     order_id: [],
     empty: false,
   };
+  
+
 
   componentDidMount() {
     this.receivedData();
@@ -237,6 +238,15 @@ class Cart extends Component {
                           {" "}
                           $ {this.state.total}
                         </strong>
+                      </div>
+                    </div>
+
+
+                    <div className="row mb-5">
+                      <div className="col-md-6">
+                        <span className="text-black">
+                     <label style={{ fontWeight:'bold' }}>Cash On Delivery</label>
+                        </span>
                       </div>
                     </div>
 
