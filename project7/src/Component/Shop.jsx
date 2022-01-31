@@ -69,30 +69,6 @@ class Shop extends Component {
         
         ));
 
-////////////////////////////////
-
-// const items = postData.filter((data)=>{
-//   if(this.state.search == null)
-//       return data
-//   else if(data.product_name.toLowerCase().includes(this.state.search.toLowerCase())){
-//       return data
-//   }
-// }).map(data=>{
-//   return(
-//   <div>
-//     <ul>
-//       <li style={{position:'relative',left:'0vh'}}>
-//         <span>{data.product_name}</span>
-       
-//       </li>
-//     </ul>
-//   </div>
-//   )
-// })
-
-
-///////////////////////
-
 
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),

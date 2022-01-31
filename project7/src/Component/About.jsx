@@ -14,7 +14,6 @@ class About extends Component {
       height: '390',
       width: '640',
       playerVars: {
-     
         autoplay: 1,
       },
     };
@@ -38,7 +37,7 @@ class About extends Component {
             <div className="col-md-6">
       
               <figure>
-                  <YouTube videoId="liJVSwOiiwg" opts={opts} onReady={this._onReady} />;
+                  <YouTube videoId="CGq6uDyWofM" muted opts={opts} onReady={this._onReady} />;
 
                   </figure>
                   </div>
