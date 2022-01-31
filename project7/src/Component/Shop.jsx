@@ -41,7 +41,7 @@ class Shop extends Component {
         const postData = slice.map((pd) => (
          
             <div
-              className="col-lg-4 col-sm-5  mb-3 d-flex flex-column align-items-center"
+              className="col-lg-4 col-sm-5 btn  mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}
             >
               <Link to={"/single-product/" + pd.product_id}>
@@ -51,16 +51,12 @@ class Shop extends Component {
                       className="card"
                       style={{ width: "15rem", border: "none" }}
                     >
-                      <img
-                        src="../images/cloth_1.jpg"
-                        className="card-img-top m-auto"
-                        alt="..."
-                      />
-                      {/* <img src={pd.image} className="card-img-top" alt="..." /> */}
-                      <div>
-                        <h5 className="card-title">{pd.product_name}</h5>
-                        <p>{pd.product_description}</p>
-                        {pd.product_price}
+                    
+                      <img width="100%" height="200px" src={pd.image} className="card-img-top" alt={pd.product_name} />
+                      <div className="text-black">
+                        <h5 className="card-title text-black">{pd.product_name}</h5>
+                  
+                       <strong className="h4">£ {pd.product_price}</strong> 
                       </div>
                     </div>
                   </div>

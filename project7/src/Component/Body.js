@@ -25,7 +25,7 @@ export class Body extends Component {
               <Link to={"/single-product/" + pd.product_id}>
               <div className="col d-flex flex-column align-items-center order-last">
                  <div className="card" style={{ width: "15rem", border: "none" }}>
-                  <img src={pd.image} className="card-img-top" alt="..." />
+                  <img width="100%" height="200px" src={pd.image}  alt={pd.product_name} />
                    <div style={{ height: "12vh" }}>
                      <h5 className="card-title" style={{ color: "black" }}>
                      {pd.product_name}

@@ -78,7 +78,7 @@ function Single() {
           <div className="row">
             <div className="col-md-6">
               <img
-                src="../images/person_1.jpg"
+                src={"../"+product[0].image}
                 alt={product[0].product_name}
                 className="img-fluid"
               />
@@ -89,7 +89,7 @@ function Single() {
               <p className="my-4">{product[0].product_description}</p>
               <p>
                 <strong className="text-primary h4">
-                  $ {product[0].product_price}
+                £ {product[0].product_price}
                 </strong>
               </p>
 

@@ -16,21 +16,9 @@ export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rerender: true,
-      // cartCounter:
-     
-    };
-  }
-  // componentDidMount() {
-  //   var cart = cart.map(element => {
-  //     count++;
-  //   })
     
-  // }
-
-  // componentWillUnmount() {
-  //   this._isMounted = false;
-  // }
+  }
+  }
 
   render() {
     return (
@@ -49,27 +37,20 @@ export class Nav extends Component {
               <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-right ">
                 <div className="site-top-icons">
                   <ul>
-                  
                     <li>
-         
-                      <NavLink to="/profile" >
+                      <NavLink to="/profile">
                         <span className="icon icon-person"></span>
                       </NavLink>
-                       
                     </li>
 
                     <li>
-                      {sessionStorage.getItem("cart") === null ? (
-                        <NavLink to="/empty" className="site-cart">
-                          <span className="icon icon-shopping_cart"></span>
-                          <span className="count">{this.state.cartCounter}</span>
-                        </NavLink>
-                      ) : (
                         <NavLink to="/cart" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count">{this.state.cartCounter}</span>
+                          <span className="count">
+                            {this.state.cartCounter}
+                          </span>
                         </NavLink>
-                      )}
+                
                     </li>
                     <li className="d-inline-block d-md-none ml-md-0">
                       <a href="#" className="site-menu-toggle js-menu-toggle">
@@ -98,15 +79,14 @@ export class Nav extends Component {
               <li>
                 <NavLink to="/about">About</NavLink>
               </li>
-            
-                <li>
-                  <NavLink to="/login">Login</NavLink>
-                </li>
-        
-                <li>
-                  <NavLink to="/register">Register</NavLink>
-                </li>
-              
+
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
             </ul>
           </div>
         </nav>
