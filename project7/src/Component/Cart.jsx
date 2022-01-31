@@ -41,6 +41,7 @@ class Cart extends Component {
       let subTotal = 0;
       const postData = cart.map((product) => (
         <tr key={product[0].product_id}>
+         { console.log(product)}
           <td className="product-thumbnail">
             <img
               src={product[0].image}

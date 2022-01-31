@@ -32,7 +32,7 @@ class Shop extends Component {
       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
       .then((res) => {
         const data = res.data;
-        console.log(data);
+        //console.log(data);
         localStorage.setItem("products", JSON.stringify(data));
         const slice = data.slice(
           this.state.offset,
