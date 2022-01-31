@@ -10,20 +10,29 @@
 // import "../fonts/icomoon/style.css";
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
+
 export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
       rerender: true,
+      cartCounter:0 ,
+      cartIcon :true 
      
     };
   }
   componentDidMount() {
-    this.setState({
-      rerender: localStorage.getItem("loggedIn"),
-    });
+    if(sessionStorage.getItem("numOfOrder")==null){
+      this.setState({
+        cartIcon :false 
+      })
+        
+     
+    }
     
   }
+
+  
 
   render() {
     return (
@@ -52,17 +61,12 @@ export class Nav extends Component {
                     </li>
 
                     <li>
-                      {sessionStorage.getItem("cart") === null ? (
+                       
                         <NavLink to="/empty" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count">2</span>
+                          <span className="count text-danger">{this.state.cartIcon == false ? 0 : '*' }</span>
                         </NavLink>
-                      ) : (
-                        <NavLink to="/cart" className="site-cart">
-                          <span className="icon icon-shopping_cart"></span>
-                          <span className="count">2</span>
-                        </NavLink>
-                      )}
+                     
                     </li>
                     <li className="d-inline-block d-md-none ml-md-0">
                       <a href="#" className="site-menu-toggle js-menu-toggle">

@@ -37,7 +37,7 @@ class Login extends Component {
     let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
 
     axios
-      .get("http://localhost/reactProject/project/api.php")
+      .get("http://localhost/ReactProject/project7/api.php")
       .then((response) => {
         this.setState({
           users: response.data,

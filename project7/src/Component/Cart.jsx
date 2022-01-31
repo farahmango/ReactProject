@@ -61,7 +61,7 @@ class Cart extends Component {
         </td>
       </tr>
     ));
-
+    
     cart.forEach((product) => {
       subTotal += product[0].product_price * product[0].product_quantity;
     });
@@ -84,10 +84,12 @@ class Cart extends Component {
     let remainder = cart.filter((p) => {
       if (p[0].product_id !== id) return p;
     });
-
-    console.log(remainder);
     sessionStorage.setItem("cart", JSON.stringify(remainder));
     this.receivedData();
+
+    let delOrder = sessionStorage.getItem("numOfOrder") - 1;
+    sessionStorage.setItem("numOfOrder",delOrder);
+    // this.props.cartCounter-=1;
   };
 
   checkOutHandler = () => {
@@ -135,6 +137,8 @@ class Cart extends Component {
         });
       sessionStorage.clear();
     }
+
+
   };
 
   orderDetails = () => {
@@ -240,6 +244,16 @@ class Cart extends Component {
                         </Link>
                       </div>
                     </div>
+
+                    {/* <div className="row">
+                      <div className="col-md-12">
+                        <form action="">
+                          <label htmlFor=""><input type="checkbox"/></label>
+                          
+                        </form>
+                      </div>
+                    </div> */}
+
                   </div>
                 </div>
               </div>

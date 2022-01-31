@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Single() {
+  
   let { id } = useParams();
   const [count, setCount] = useState(0);
 
@@ -27,6 +28,23 @@ function Single() {
   // console.log(product);
 
   const addToCartHandler = () => {
+
+    // let countNum = sessionStorage.getItem("numOfOrder")?sessionStorage.getItem("numOfOrder").length:0;
+    
+    // props.cartCounter(countNum);
+    // console.log(props.cartCounter(countNum));
+
+    
+    // num of order in cart
+    // if(sessionStorage.getItem("numOfOrder") == null){
+    //   sessionStorage.setItem("numOfOrder", parseInt(1));
+    // }else{
+    //   sessionStorage.setItem("numOfOrder", parseInt(sessionStorage.getItem("numOfOrder"))+1);
+    // }
+
+    if(sessionStorage.getItem("numOfOrder") == null){
+      sessionStorage.setItem("numOfOrder",1);
+    }
     //sessionStorage.clear();
     
     if (sessionStorage.getItem("cart") == null) {
@@ -125,7 +143,7 @@ function Single() {
               <button
                 name="addToCart"
                 className="buy-now btn btn-sm btn-primary"
-                onClick={addToCartHandler}
+                onClick={addToCartHandler()}
               >
                 <Link to="/cart" className="text-white">
                   Add To Cart

@@ -91,7 +91,7 @@ if (this.state.address === "") {
       };
 
       axios
-        .post("http://localhost/reactProject/project/insert.php", currentUser)
+        .post("http://localhost/ReactProject/project7/insert.php", currentUser)
         .then((res) => console.log(res.data))
         .catch((error) => {
           console.log(error.response);
