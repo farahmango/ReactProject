@@ -1,12 +1,35 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Navigate } from "react-router";
 export class Profile extends Component {
-  render() {
-    let user = JSON.parse(localStorage.getItem("currentUser"));
+  state = {
+    redirect: false,
+    user: [],
+  };
 
+  componentDidMount() {
+    if (JSON.parse(localStorage.getItem("currentUser")) !== null) {
+      let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      this.setState({
+        user: currentUser,
+      });
+      console.log(this.state.user);
+    } else {
+      this.setState({
+        redirect: true,
+      });
+    }
+  }
+
+  render() {
     return (
       <div className="container4">
+        {this.state.redirect === true ? (
+          <Navigate to="/login" replace={true} />
+        ) : (
+          ""
+        )}
+
         <div className="main-body4">
           <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
@@ -47,21 +70,21 @@ export class Profile extends Component {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{user.name}</div>
+                    <div class="col-sm-9 text-secondary">{this.state.user.name}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{user.email}</div>
+                    <div class="col-sm-9 text-secondary">{this.state.user.email}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Phone</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{user.phone}</div>
+                    <div class="col-sm-9 text-secondary">{this.state.user.phone}</div>
                   </div>
                   <hr />
                   <div className="row">
@@ -77,7 +100,7 @@ export class Profile extends Component {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Address</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{user.address}</div>
+                    <div class="col-sm-9 text-secondary">{this.state.user.address}</div>
                   </div>
                   <hr />
                 </div>

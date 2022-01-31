@@ -100,10 +100,11 @@ function Single() {
                       className="btn btn-outline-primary js-btn-minus"
                       type="button"
                     >
-                      <i class="fas fa-minus"></i>
+                      <i className="fas fa-minus"></i>
                     </button>
                   </div>
                   <input
+                  readOnly
                     type="text"
                     className="form-control text-center"
                     value={count}
@@ -116,7 +117,7 @@ function Single() {
                       className="btn btn-outline-primary js-btn-plus"
                       type="button"
                     >
-                      <i class="fas fa-plus"></i>
+                      <i className="fas fa-plus"></i>
                     </button>
                   </div>
                 </div>
