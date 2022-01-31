@@ -603,3 +603,8 @@ width: 55%; }
     margin-bottom: 10px; } }
 
 /*# sourceMappingURL=style.css.map */
+#register_link:hover{
+  text-decoration: underline !important;
+
+
+  }

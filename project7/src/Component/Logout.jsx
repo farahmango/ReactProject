@@ -13,7 +13,8 @@ class Logout extends Component {
   }
 
   logout = () => {
-    localStorage.clear();
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('loggedIn');
  
   };
 

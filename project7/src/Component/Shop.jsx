@@ -32,6 +32,7 @@ class Shop extends Component {
       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
       .then((res) => {
         const data = res.data;
+        console.log(data);
         localStorage.setItem("products", JSON.stringify(data));
         const slice = data.slice(
           this.state.offset,
@@ -69,30 +70,6 @@ class Shop extends Component {
         
         ));
 
-////////////////////////////////
-
-// const items = postData.filter((data)=>{
-//   if(this.state.search == null)
-//       return data
-//   else if(data.product_name.toLowerCase().includes(this.state.search.toLowerCase())){
-//       return data
-//   }
-// }).map(data=>{
-//   return(
-//   <div>
-//     <ul>
-//       <li style={{position:'relative',left:'0vh'}}>
-//         <span>{data.product_name}</span>
-       
-//       </li>
-//     </ul>
-//   </div>
-//   )
-// })
-
-
-///////////////////////
-
 
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
@@ -119,7 +96,8 @@ class Shop extends Component {
   componentDidMount() {
     if(this.state.search === null){
       this.receivedData();
-    } 
+    };
+ 
   }
 
   render() {
@@ -153,7 +131,7 @@ class Shop extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-12 mb-0">
-                  <a href="index.html">Home</a>{" "}
+                <Link to="/">Home</Link>
                   <span className="mx-2 mb-0">/</span>{" "}
                   <strong className="text-black">Shop</strong>
                 </div>

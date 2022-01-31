@@ -150,9 +150,9 @@ class Login extends Component {
                     />
                   </div>
                   <div className="form-group text-black " id="link-signup">
-                    You Dont Have An Account?
+                    
                     <NavLink to="/register" className="signup-image-link" >
-                     <p style={{ fontWeight:'bold' }}> Create One</p>
+                     <p id="register_link"> You Dont Have An Account?</p>
                     </NavLink>
                   </div>
                 </form>

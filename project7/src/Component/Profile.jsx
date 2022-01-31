@@ -69,21 +69,21 @@ export class Profile extends Component {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.name}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.name}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.email}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.email}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Phone</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.phone}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.phone}</div>
                   </div>
                   <hr />
               
@@ -92,7 +92,7 @@ export class Profile extends Component {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Address</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.address}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.address}</div>
                   </div>
                   <hr />
                 </div>
