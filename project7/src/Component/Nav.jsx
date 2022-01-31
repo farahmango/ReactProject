@@ -14,15 +14,16 @@ export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rerender:true
+      rerender: true,
+     
     };
   }
   componentDidMount() {
     this.setState({
-      rerender:false
+      rerender: localStorage.getItem("loggedIn"),
     });
+    
   }
-
 
   render() {
     return (
@@ -41,11 +42,13 @@ export class Nav extends Component {
               <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-right ">
                 <div className="site-top-icons">
                   <ul>
+                  
                     <li>
-                      {" "}
-                      <NavLink to="/profile">
+         
+                      <NavLink to="/profile" >
                         <span className="icon icon-person"></span>
                       </NavLink>
+                       
                     </li>
 
                     <li>
@@ -88,20 +91,19 @@ export class Nav extends Component {
               <li>
                 <NavLink to="/about">About</NavLink>
               </li>
-
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/register">Register</NavLink>
-              </li>
+            
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+        
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              
             </ul>
           </div>
         </nav>
       </header>
-
-   
     );
   }
 }

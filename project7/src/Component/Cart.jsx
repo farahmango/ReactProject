@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
+import axios from "axios";
 
 class Cart extends Component {
   state = {
@@ -8,8 +9,20 @@ class Cart extends Component {
     reRender: false,
     redirect: false,
     total: 0,
-    checkOut:false
+    checkOut: false,
+    order_id: [],
   };
+
+ 
+
+  componentDidMount() {
+    this.receivedData();
+    axios
+        .get("http://localhost/reactProject/project/ordersApi.php")
+        .then((response) => {
+          sessionStorage.setItem("order_id", response.data[0].order_id);
+        });
+  }
 
   incrementCount = () => {
     this.setState({
@@ -26,7 +39,6 @@ class Cart extends Component {
   receivedData() {
     let cart = JSON.parse(sessionStorage.getItem("cart"));
     let subTotal = 0;
-    
     const postData = cart.map((product) => (
       <tr key={product[0].product_id}>
         <td className="product-thumbnail">
@@ -40,18 +52,12 @@ class Cart extends Component {
           <h2 className="h5 text-black">{product[0].product_name}</h2>
         </td>
         <td> $ {product[0].product_price}</td>
-        <td>
-          {product[0].product_quantity}
-        
-        </td>
+        <td>{product[0].product_quantity}</td>
         <td> $ {product[0].product_price * product[0].product_quantity}</td>
         <td>
           <button
             className="btn btn-primary btn-sm"
-            onClick={this.deleteItem.bind(this, product[0].product_id)}
-          >
-            X
-          </button>
+            onClick={this.deleteItem.bind(this, product[0].product_id)}> X </button>
         </td>
       </tr>
     ));
@@ -66,10 +72,6 @@ class Cart extends Component {
       redirect: false,
       total: subTotal,
     });
-  }
-
-  componentDidMount() {
-    this.receivedData();
   }
 
   deleteItem = (id, event) => {
@@ -99,8 +101,56 @@ class Cart extends Component {
       this.setState({
         checkOut: true,
       });
+      let user = JSON.parse(localStorage.getItem("currentUser"));
+      let order = {
+        user_id: parseInt(user["id"]),
+      };
+
+      //save order in orders table
+      axios
+        .post("http://localhost/reactProject/project/orders.php", order)
+        .then((res) => console.log(res.data.user_id))
+        .catch((error) => {
+          console.log(error.response);
+        })
+        .then((response) => {
+          console.log(response);
+        });
+
+      //
+      
+      
+        let checkOutCart = this.orderDetails();
+      axios
+        .post(
+          "http://localhost/reactProject/project/ordersDelailes.php",
+          checkOutCart
+        )
+        .then((res) => console.log(res.data))
+        .catch((error) => {
+          console.log(error.response.data);
+        })
+        .then((response) => {
+          console.log(response);
+        });
       sessionStorage.clear();
     }
+  };
+
+  orderDetails = () => {
+    let cartProducts = [];
+    
+    let cart = JSON.parse(sessionStorage.getItem("cart"));
+    cart.forEach((element) => {
+      let product = {
+        product_id: parseInt(element[0].product_id),
+        order_id: parseInt(sessionStorage.getItem("order_id"))+1,
+        quantity: element[0].product_quantity,
+      };
+      cartProducts.push(product);
+    });
+   console.log(cartProducts);
+   return cartProducts
   };
 
   render() {
@@ -196,8 +246,6 @@ class Cart extends Component {
             </div>
           </div>
         </div>
-        
-        
       </div>
     );
   }

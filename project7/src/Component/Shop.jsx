@@ -184,9 +184,9 @@ class Shop extends Component {
                     </div>
                   </div>
 
-               <div  className="row ">
-                    <div className="col-md-12 text-center d-flex flex-column " >
-                    <div className="d-flex flex-wrap justify-content-between ">
+                  <div  className="row">
+                    <div className="col-md-12 text-center d-flex flex-column">
+                      <div className="d-flex flex-wrap justify-content-between">
                         {this.state.postData}
                       </div>
                       <div className="align-self-center ">

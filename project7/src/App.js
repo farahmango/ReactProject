@@ -15,10 +15,12 @@ import { Api } from "./Api";
 import Single from "./Component/Single.jsx";
 import Logout from "./Component/Logout.jsx";
 import Empty from "./Component/Empty.jsx";
-import CheckOut from "./Component/ChecOut.jsx";
+import CheckOut from "./Component/CheckOut.jsx";
 
 function App() {
   const [item, setItem] = useState([]);
+  const [loggedIn, setloggedIn] = useState({});
+
   useEffect(() => {
     fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
       .then((res) => res.json())
@@ -26,7 +28,9 @@ function App() {
         setItem(result);
       });
   }, []);
-
+  
+  
+ 
   return (
     <React.Fragment>
       <BrowserRouter>
