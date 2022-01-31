@@ -3,6 +3,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import "./page.css";
 import { Link } from "react-router-dom";
+import FormData from "form-data";
 
 class Shop extends Component {
 
@@ -13,18 +14,25 @@ class Shop extends Component {
       data: [],
       perPage: 9,
       currentPage: 0,
-      
+      search:null,
+      page : ''
+   
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
-  
+  searchSpace=(event)=>{
+    let keyword = event.target.value;
+    this.setState({search:keyword})
+  }
+
 
   receivedData() {
     axios
       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
       .then((res) => {
         const data = res.data;
+        //console.log(data);
         localStorage.setItem("products", JSON.stringify(data));
         const slice = data.slice(
           this.state.offset,
@@ -33,7 +41,7 @@ class Shop extends Component {
         const postData = slice.map((pd) => (
          
             <div
-              className="col-lg-4 col-sm-5  mb-3 d-flex flex-column align-items-center"
+              className="col-lg-4 col-sm-5 btn  mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}
             >
               <Link to={"/single-product/" + pd.product_id}>
@@ -43,16 +51,12 @@ class Shop extends Component {
                       className="card"
                       style={{ width: "15rem", border: "none" }}
                     >
-                      <img
-                        src="images/cloth_1.jpg"
-                        className="card-img-top m-auto"
-                        alt="..."
-                      />
-                      {/* <img src={pd.image} className="card-img-top" alt="..." /> */}
-                      <div>
-                        <h5 className="card-title">{pd.product_name}</h5>
-                        <p>{pd.product_description}</p>
-                        {pd.product_price}
+                    
+                      <img width="100%" height="200px" src={pd.image} className="card-img-top" alt={pd.product_name} />
+                      <div className="text-black">
+                        <h5 className="card-title text-black">{pd.product_name}</h5>
+                  
+                       <strong className="h4">£ {pd.product_price}</strong> 
                       </div>
                     </div>
                   </div>
@@ -61,6 +65,7 @@ class Shop extends Component {
             </div>
         
         ));
+
 
         this.setState({
           pageCount: Math.ceil(data.length / this.state.perPage),
@@ -85,10 +90,36 @@ class Shop extends Component {
   };
 
   componentDidMount() {
-    this.receivedData();
+    if(this.state.search === null){
+      this.receivedData();
+    };
+ 
   }
 
   render() {
+    let product = JSON.parse(localStorage.getItem("products"));
+
+    const items = product.filter((data)=>{
+      if(this.state.search == null)
+      return    this.state.page
+       else if(data.product_name.toLowerCase().includes(this.state.search.toLowerCase())){
+          return data
+      }
+    }).map(data=>{
+      return(
+      <div  className="border">
+        <ul className='list-group'>
+    
+          <Link to={"/single-product/" +data.product_id}>
+          <li style={{position:'relative',left:'0vh'}} className="list-group-item">
+            {data.product_name}
+          </li>
+         </Link>
+        </ul>
+      </div>
+      )
+    })
+
     return (
       <div>
         <div className="site-wrap">
@@ -96,7 +127,7 @@ class Shop extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-12 mb-0">
-                  <a href="index.html">Home</a>{" "}
+                <Link to="/">Home</Link>
                   <span className="mx-2 mb-0">/</span>{" "}
                   <strong className="text-black">Shop</strong>
                 </div>
@@ -118,7 +149,9 @@ class Shop extends Component {
                               type="text"
                               className="form-control border-0"
                               placeholder="Search"
+                              onChange={(e)=>this.searchSpace(e)}
                             />
+                            {items}
                           </form>
                      
                       </div>
@@ -156,5 +189,4 @@ class Shop extends Component {
     );
   }
 }
-
 export default Shop;

@@ -1,17 +1,10 @@
-// import "../css/bootstrap/bootstrap-grid.css";
-// import "../css/bootstrap/bootstrap-reboot.css";
-// import "../css/aos.css";
-// import "../css/bootstrap.min.css";
-// // import '../css/jquery-ui.css'
-// import "../css/magnific-popup.css";
-// // import '../css/owl.carousel.min.css'
-// // import '../css/owl.theme.default.min.css'
-// import "../css/style.css";
-// import "../fonts/icomoon/style.css";
+
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 export class Nav extends Component {
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +23,7 @@ export class Nav extends Component {
      
     }
     
+  
   }
 
   
@@ -51,13 +45,10 @@ export class Nav extends Component {
               <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-right ">
                 <div className="site-top-icons">
                   <ul>
-                  
                     <li>
-         
-                      <NavLink to="/profile" >
+                      <NavLink to="/profile">
                         <span className="icon icon-person"></span>
                       </NavLink>
-                       
                     </li>
 
                     <li>
@@ -95,15 +86,14 @@ export class Nav extends Component {
               <li>
                 <NavLink to="/about">About</NavLink>
               </li>
-            
-                <li>
-                  <NavLink to="/login">Login</NavLink>
-                </li>
-        
-                <li>
-                  <NavLink to="/register">Register</NavLink>
-                </li>
-              
+
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
             </ul>
           </div>
         </nav>

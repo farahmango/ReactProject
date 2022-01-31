@@ -43,21 +43,20 @@ export class Profile extends Component {
                       width="150"
                     />
                     <div className="mt-3">
-                      <h4>John Doe</h4>
-                      <p className="text-secondary mb-1">
-                        Full Stack Developer
-                      </p>
+                      <h4>{this.state.user.name}</h4>
                       <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
+                      {this.state.user.address}
                       </p>
                       <button className="btn btn-dark b4">
                         <NavLink to="/logout" className="text-white">
                           Logout
                         </NavLink>
                       </button>
-                      <button className="btn btn-outline-dark b4">
-                        Message
-                      </button>
+                      <button className="btn btn-dark b4">
+                      <NavLink to="/weather" className="text-white">
+                          See The Weather
+                        </NavLink>                     
+                         </button>
                     </div>
                   </div>
                 </div>
@@ -70,37 +69,30 @@ export class Profile extends Component {
                     <div className="col-sm-3">
                       <h6 className="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.name}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.name}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.email}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.email}</div>
                   </div>
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Phone</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.phone}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.phone}</div>
                   </div>
                   <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Mobile</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      (320) 380-4539
-                    </div>
-                  </div>
-                  <hr />
+              
+                 
                   <div className="row">
                     <div className="col-sm-3">
                       <h6 className="mb-0">Address</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{this.state.user.address}</div>
+                    <div className="col-sm-9 text-secondary">{this.state.user.address}</div>
                   </div>
                   <hr />
                 </div>

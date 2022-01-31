@@ -54,7 +54,7 @@ export class Test extends Component {
                 </div>     
                 <div className="box2">
                 
-                <div className="name2">Alex Smith</div>
+                <div className="name2">Gloria ggyf</div>
                 <div className="content2">
                 <div className="info2">
     
@@ -85,7 +85,7 @@ export class Test extends Component {
                 </div>     
                 <div className="box2">
                 
-                <div className="name2">Alex Smith</div>
+                <div className="name2">Michele Agar</div>
                 <div className="content2">
                 <div className="info2">
     
@@ -121,7 +121,7 @@ export class Test extends Component {
                 </div>     
                 <div className="box2">
                 
-                <div className="name2">Alex Smith</div>
+                <div className="name2">Karl Roberts</div>
                 <div className="content2">
                 <div className="info2">
     
@@ -152,7 +152,7 @@ export class Test extends Component {
                 </div>     
                 <div className="box2">
                 
-                <div className="name2">Alex Smith</div>
+                <div className="name2">Ruth Thorne</div>
                 <div className="content2">
                 <div className="info2">
     
@@ -183,7 +183,7 @@ export class Test extends Component {
                 </div>     
                 <div className="box2">
                 
-                <div className="name2">Alex Smith</div>
+                <div className="name2">Carrie Granger</div>
                 <div className="content2">
                 <div className="info2">
     

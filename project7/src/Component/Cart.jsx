@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
 import axios from "axios";
-
 class Cart extends Component {
   state = {
     count: 0,
@@ -11,17 +10,18 @@ class Cart extends Component {
     total: 0,
     checkOut: false,
     order_id: [],
+    empty: false,
   };
+  
 
- 
 
   componentDidMount() {
     this.receivedData();
     axios
-        .get("http://localhost/reactProject/project/ordersApi.php")
-        .then((response) => {
-          sessionStorage.setItem("order_id", response.data[0].order_id);
-        });
+      .get("http://localhost/reactProject/project/ordersApi.php")
+      .then((response) => {
+        sessionStorage.setItem("order_id", response.data[0].order_id);
+      });
   }
 
   incrementCount = () => {
@@ -37,41 +37,52 @@ class Cart extends Component {
   };
 
   receivedData() {
-    let cart = JSON.parse(sessionStorage.getItem("cart"));
-    let subTotal = 0;
-    const postData = cart.map((product) => (
-      <tr key={product[0].product_id}>
-        <td className="product-thumbnail">
-          <img
-            src={product[0].image}
-            alt={product[0].product_name}
-            className="img-fluid"
-          />
-        </td>
-        <td className="product-name">
-          <h2 className="h5 text-black">{product[0].product_name}</h2>
-        </td>
-        <td> $ {product[0].product_price}</td>
-        <td>{product[0].product_quantity}</td>
-        <td> $ {product[0].product_price * product[0].product_quantity}</td>
-        <td>
-          <button
-            className="btn btn-primary btn-sm"
-            onClick={this.deleteItem.bind(this, product[0].product_id)}> X </button>
-        </td>
-      </tr>
-    ));
-    
-    cart.forEach((product) => {
-      subTotal += product[0].product_price * product[0].product_quantity;
-    });
+    if (sessionStorage.getItem("cart") != null) {
+      let cart = JSON.parse(sessionStorage.getItem("cart"));
+      let subTotal = 0;
+      const postData = cart.map((product) => (
+        <tr key={product[0].product_id}>
+         { console.log(product)}
+          <td className="product-thumbnail">
+            <img
+              src={product[0].image}
+              alt={product[0].product_name}
+              className="img-fluid"
+            />
+          </td>
+          <td className="product-name">
+            <h2 className="h5 text-black">{product[0].product_name}</h2>
+          </td>
+          <td> $ {product[0].product_price}</td>
+          <td>{product[0].product_quantity}</td>
+          <td> $ {product[0].product_price * product[0].product_quantity}</td>
+          <td>
+            <button
+              className="btn btn-dark btn-sm"
+              onClick={this.deleteItem.bind(this, product[0].product_id)}
+            >
+              {" "}
+              X{" "}
+            </button>
+          </td>
+        </tr>
+      ));
 
-    this.setState({
-      postData,
-      reRender: false,
-      redirect: false,
-      total: subTotal,
-    });
+      cart.forEach((product) => {
+        subTotal += product[0].product_price * product[0].product_quantity;
+      });
+
+      this.setState({
+        postData,
+        reRender: false,
+        redirect: false,
+        total: subTotal,
+      });
+    } else {
+      this.setState({
+        empty: true,
+      });
+    }
   }
 
   deleteItem = (id, event) => {
@@ -103,9 +114,11 @@ class Cart extends Component {
       this.setState({
         checkOut: true,
       });
+      
       let user = JSON.parse(localStorage.getItem("currentUser"));
+      console.log(user.id);
       let order = {
-        user_id: parseInt(user["id"]),
+        user_id: parseInt(user.id),
       };
 
       //save order in orders table
@@ -120,9 +133,8 @@ class Cart extends Component {
         });
 
       //
-      
-      
-        let checkOutCart = this.orderDetails();
+
+      let checkOutCart = this.orderDetails();
       axios
         .post(
           "http://localhost/reactProject/project/ordersDelailes.php",
@@ -135,6 +147,7 @@ class Cart extends Component {
         .then((response) => {
           console.log(response);
         });
+
       sessionStorage.clear();
     }
 
@@ -143,18 +156,18 @@ class Cart extends Component {
 
   orderDetails = () => {
     let cartProducts = [];
-    
+
     let cart = JSON.parse(sessionStorage.getItem("cart"));
     cart.forEach((element) => {
       let product = {
         product_id: parseInt(element[0].product_id),
-        order_id: parseInt(sessionStorage.getItem("order_id"))+1,
+        order_id: parseInt(sessionStorage.getItem("order_id")) + 1,
         quantity: element[0].product_quantity,
       };
       cartProducts.push(product);
     });
-   console.log(cartProducts);
-   return cartProducts
+    console.log(cartProducts);
+    return cartProducts;
   };
 
   render() {
@@ -170,12 +183,17 @@ class Cart extends Component {
         ) : (
           ""
         )}
+        {this.state.empty === true ? (
+          <Navigate to="/empty" replace={true} />
+        ) : (
+          ""
+        )}
         <div className="bg-light py-3">
           <div className="container">
             <div className="row">
               <div className="col-md-12 mb-0">
-                <a href="index.html">Home</a>{" "}
-                <span className="mx-2 mb-0">/</span>{" "}
+                <Link to="/">Home</Link>
+                <span className="mx-2 mb-0">/</span>
                 <strong className="text-black">Cart</strong>
               </div>
             </div>
@@ -205,11 +223,11 @@ class Cart extends Component {
             </div>
 
             <div className="row">
-              <div className="col-md-8 pl-5">
+              <div className="col-md-8 ">
                 <div className="row justify-content-end">
                   <div className="col-md-7">
                     <div className="row">
-                      <div className="col-md-12 text-right border-bottom mb-5">
+                      <div className="col-md-12 text-left border-bottom mb-5">
                         <h3 className="text-black h4 text-uppercase">
                           Cart Totals
                         </h3>
@@ -228,17 +246,26 @@ class Cart extends Component {
                       </div>
                     </div>
 
+
+                    <div className="row mb-5">
+                      <div className="col-md-6">
+                        <span className="text-black">
+                     <label style={{ fontWeight:'bold' }}>Cash On Delivery</label>
+                        </span>
+                      </div>
+                    </div>
+
                     <div className="row">
                       <div className="col-md-12">
                         <button
-                          className="btn btn-primary btn-lg py-3 btn-block"
+                          className="btn btn-dark btn-lg py-3 btn-block"
                           onClick={this.checkOutHandler}
                         >
                           Proceed To Checkout
                         </button>
                         <Link
                           to="/shop"
-                          className="btn btn-primary btn-lg py-3 btn-block"
+                          className="btn btn-dark btn-lg py-3 btn-block"
                         >
                           Continue Shopping
                         </Link>

@@ -149,9 +149,10 @@ class Login extends Component {
                       value="Log in"
                     />
                   </div>
-                  <div className="form-group " id="link-signup">
-                    <NavLink to="/register" className="signup-image-link">
-                      Create an account
+                  <div className="form-group text-black " id="link-signup">
+                    
+                    <NavLink to="/register" className="signup-image-link" >
+                     <p id="register_link"> You Dont Have An Account?</p>
                     </NavLink>
                   </div>
                 </form>

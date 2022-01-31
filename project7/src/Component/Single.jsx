@@ -54,25 +54,28 @@ function Single() {
       sessionStorage.setItem("cart", JSON.stringify(newProduct));
     } else {
       let cart = JSON.parse(sessionStorage.getItem("cart"));
-     // console.log(cart);
+      console.log(cart);
 
       let exist = cart.filter((p) => {
         if (p[0].product_id == product[0].product_id) {
           return true;
         }
       });
-      // console.log(exist );
-      //  console.log();
+       console.log(exist );
+       console.log();
+       console.log(product[0].product_quantity);
       if(exist.length !== 0)
-      { cart.map((p) => {
+      {
+       let  c=  cart.map((p) => {
         if (p[0].product_id == product[0].product_id) {
           p[0].product_quantity = Number(p[0].product_quantity)+count;
         }
       });
+
       sessionStorage.setItem("cart", JSON.stringify(cart));
     }else
       {
-        // console.log(cart);
+        product[0].product_quantity = count;
         cart = [...cart, product];
       sessionStorage.setItem("cart", JSON.stringify(cart));}
     }
@@ -96,7 +99,7 @@ function Single() {
           <div className="row">
             <div className="col-md-6">
               <img
-                src="../images/person_1.jpg"
+                src={"../"+product[0].image}
                 alt={product[0].product_name}
                 className="img-fluid"
               />
@@ -107,7 +110,7 @@ function Single() {
               <p className="my-4">{product[0].product_description}</p>
               <p>
                 <strong className="text-primary h4">
-                  $ {product[0].product_price}
+                £ {product[0].product_price}
                 </strong>
               </p>
 

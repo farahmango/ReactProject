@@ -21,33 +21,6 @@ import CheckOut from "./Component/CheckOut.jsx";
 
 function App() {
   const [item, setItem] = useState([]);
-  const [loggedIn, setloggedIn] = useState({});
-  // const [cartCounter, setCartCounter] = useState(0);
-
-  // if (sessionStorage.getItem("numOfOrder") != null) {
-  //   setCartCounter(sessionStorage.getItem("numOfOrder").length);
-  // }
-
-  // const countOrder = (countNum) => {
-  // // if(sessionStorage.getItem("numOfOrder") == null){
-  // //   setCartCounter(parseInt(sessionStorage.setItem("numOfOrder", 1)));
-  // //   }else{
-  // //   setCartCounter(sessionStorage.setItem("numOfOrder", parseInt(sessionStorage.getItem("numOfOrder"))+1));
-  // //   }
-  //   if(sessionStorage.getItem("numOfOrder")==null){
-  //     setCartCounter(parseInt(sessionStorage.setItem("numOfOrder", 1)));
-  //     console.log("iff");
-  //   }else{
-  //    let newCount = countNum+1;
-  //    setCartCounter(newCount);
-
-  //     console.log("else");
-  //     console.log(newCount);
-  //     console.log(countNum);
-  //     console.log(cartCounter);
-
-  //   }
-  // }
   
   useEffect(() => {
     fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
@@ -56,8 +29,7 @@ function App() {
         setItem(result);
       });
   }, []);
-  
-  
+
  
   return (
     <React.Fragment>

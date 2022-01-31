@@ -3,7 +3,7 @@ import "./Register/css/style.css";
 import "./Register/fonts/material-icon/css/material-design-iconic-font.min.css";
 import axios from "axios";
 import { Navigate } from "react-router";
- 
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +13,21 @@ class Register extends Component {
       email: "",
       password: "",
       re_pass: "",
-      phone:"",
-      address:"",
+      phone: "",
+      address: "",
       errors: {},
       users: {},
       redirect: false,
     };
   }
+  componentDidMount() {
+    axios
+        .get("http://localhost/reactProject/project/lastUser.php")
+        .then((response) => {
+          sessionStorage.setItem("user_id", response.data[0].id);
+        });
+  }
+
 
   setValue = (e) => {
     this.setState({ errors: "" });
@@ -68,20 +76,19 @@ class Register extends Component {
       errors["passwordMatch"] = "The tow passwords do not match!";
       isValid = false;
     }
-//phone Validation
-if (this.state.phone === "") {
-  errors["phone"] = "This field is required!";
-  isValid = false;
-}
-//phone Validation
-if (this.state.address === "") {
-  errors["address"] = "This field is required!";
-  isValid = false;
-}
+    //phone Validation
+    if (this.state.phone === "") {
+      errors["phone"] = "This field is required!";
+      isValid = false;
+    }
+    //phone Validation
+    if (this.state.address === "") {
+      errors["address"] = "This field is required!";
+      isValid = false;
+    }
     this.setState({ errors: errors });
 
     if (isValid === true) {
-      
       var currentUser = {
         name: this.state.name,
         email: this.state.email,
@@ -95,11 +102,21 @@ if (this.state.address === "") {
         .then((res) => console.log(res.data))
         .catch((error) => {
           console.log(error.response);
-        }).then((response) => {
+        })
+        .then((response) => {
           console.log(response);
-          this.setState({redirect: true})
-      });
+          this.setState({ redirect: true });
+        });
 
+        var user = {
+          id:parseInt(sessionStorage.getItem('user_id'))+1,
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password,
+          phone: this.state.phone,
+          address: this.state.address,
+        };
+        localStorage.setItem("currentUser", JSON.stringify(user));
     }
   };
 
@@ -107,129 +124,135 @@ if (this.state.address === "") {
     return (
       <React.Fragment>
         <section className="signup">
-        {this.state.redirect === true ? <Navigate to="/login" replace={true} /> : ""}
-            <div className="signup-content">
-              <div className="signup-form">
-                <h2 className="form-title">Sign up</h2>
-                <form
-                  id="fupForm"
-                  method="POST"
-                  className="register-form"
-                  id="register-form"
-                  onSubmit={this.submitHandler}
-                >
-                  <div className="form-group">
-                    <label htmlFor="name" className="icons">
-                      <i className="zmdi zmdi-account material-icons-name"></i>
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      placeholder="Your Name"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["name"]}
-                    </small>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="email" className="icons">
-                      <i className="zmdi zmdi-email"></i>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Your Email"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["email"]}
-                    </small>
-                  </div>
+          {this.state.redirect === true ? (
+            <Navigate to="/shop" replace={true} />
+          ) : (
+            ""
+          )}
+          <div className="signup-content">
+            <div className="signup-form">
+              <h2 className="form-title">Sign up</h2>
+              <form
+                id="fupForm"
+                method="POST"
+                className="register-form"
+                id="register-form"
+                onSubmit={this.submitHandler}
+              >
+                <div className="form-group">
+                  <label htmlFor="name" className="icons">
+                    <i className="zmdi zmdi-account material-icons-name"></i>
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Your Name"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["name"]}
+                  </small>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email" className="icons">
+                    <i className="zmdi zmdi-email"></i>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Your Email"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["email"]}
+                  </small>
+                </div>
 
-                  <div className="form-group">
-                    <label htmlFor="your_name" className="icons">
+                <div className="form-group">
+                  <label htmlFor="your_name" className="icons">
                     <i className="fas fa-phone"></i>
-                    </label>
-                    <input
-                      type="phone"
-                      name="phone"
-                      id="phone"
-                      placeholder="Your phone"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["phone"]}
-                    </small>
-                  </div>
+                  </label>
+                  <input
+                    type="phone"
+                    name="phone"
+                    id="phone"
+                    placeholder="Your phone"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["phone"]}
+                  </small>
+                </div>
 
-                  <div className="form-group">
-                    <label htmlFor="your_name" className="icons">
+                <div className="form-group">
+                  <label htmlFor="your_name" className="icons">
                     <i className="fas fa-map-marker-alt"></i>
-                    </label>
-                    <input
-                      type="address"
-                      name="address"
-                      id="address"
-                      placeholder="Your address"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["address"]}
-                    </small>
-                  </div>
+                  </label>
+                  <input
+                    type="address"
+                    name="address"
+                    id="address"
+                    placeholder="Your address"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["address"]}
+                  </small>
+                </div>
 
-                  <div className="form-group">
-                    <label htmlFor="pass" className="icons">
-                      <i className="zmdi zmdi-lock"></i>
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="Password"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["password"]}
-                    </small>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="re-pass" className="icons">
-                      <i className="zmdi zmdi-lock-outline"></i>
-                    </label>
-                    <input
-                      type="password"
-                      name="re_pass"
-                      id="re_pass"
-                      placeholder="Repeat your password"
-                      onChange={this.setValue}
-                    />
-                    <small className="text-danger">
-                      {this.state.errors["passwordMatch"]}
-                    </small>
-                  </div>
-                  <div className="form-group form-button">
-                    <input
-                      type="submit"
-                      name="submit"
-                      id="submit"
-                      className="form-submit"
-                      value="Register"
-                    />
-                  </div>
-                </form>
-              </div>
-              <div className="signup-image">
-                <figure>
-                <img className='' src="images/signup-image.jpg" alt="sign up "/>
-
-                </figure>
-              </div>
+                <div className="form-group">
+                  <label htmlFor="pass" className="icons">
+                    <i className="zmdi zmdi-lock"></i>
+                  </label>
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["password"]}
+                  </small>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="re-pass" className="icons">
+                    <i className="zmdi zmdi-lock-outline"></i>
+                  </label>
+                  <input
+                    type="password"
+                    name="re_pass"
+                    id="re_pass"
+                    placeholder="Repeat your password"
+                    onChange={this.setValue}
+                  />
+                  <small className="text-danger">
+                    {this.state.errors["passwordMatch"]}
+                  </small>
+                </div>
+                <div className="form-group form-button">
+                  <input
+                    type="submit"
+                    name="submit"
+                    id="submit"
+                    className="form-submit"
+                    value="Register"
+                  />
+                </div>
+              </form>
             </div>
-
+            <div className="signup-image">
+              <figure>
+                <img
+                  className=""
+                  src="images/signup-image.jpg"
+                  alt="sign up "
+                />
+              </figure>
+            </div>
+          </div>
         </section>
       </React.Fragment>
     );

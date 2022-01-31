@@ -9,13 +9,11 @@ class About extends Component {
     super(props);
     this.state = {};
   }
- 
   render() {
     const opts = {
-      height: '390',
-      width: '640',
+      height: "400",
+      width: "100%",
       playerVars: {
-     
         autoplay: 1,
       },
     };
@@ -34,32 +32,28 @@ class About extends Component {
 
         <div className="site-section border-bottom" >
           <div className="container">
-            <div className="row mb-5">
-              <div className="col-md-6">
-                <div className="block-16">
-                  <figure>
-                  <YouTube videoId="liJVSwOiiwg" opts={opts} onReady={this._onReady} />;
+            <div className="row mb-6">
+        
+            <div className="col-md-6">
+      
+              <figure>
+                  <YouTube videoId="CGq6uDyWofM" muted opts={opts} onReady={this._onReady} />;
 
                   </figure>
-                </div>
-              </div>
+                  </div>
+
               <div className="col-md-1"></div>
               <div className="col-md-5">
                 <div className="site-section-heading pt-3 mb-4">
                   <h2 className="text-black">How We Started</h2>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
-                  repellat, dicta at laboriosam, nemo exercitationem itaque
-                  eveniet architecto cumque, deleniti commodi molestias
-                  repellendus quos sequi hic fugiat asperiores illum. Atque, in,
-                  fuga excepturi corrupti error corporis aliquam unde nostrum
-                  quas.
+                With over 3,000 different fruits on the planet you 
+                may find it hard to believe that less than 5% are readily available here in the UK. 
+                That's why we're taking the time to source, taste, import and hand select some of the worlds tastiest fresh exotic fruit. 
                 </p>
                 <p>
-                  Accusantium dolor ratione maiores est deleniti nihil?
-                  Dignissimos est, sunt nulla illum autem in, quibusdam cumque
-                  recusandae, laudantium minima repellendus.
+                ur supply chain includes some of the most respected fruit producers from around the world who maintain some of the highest quality, food safety and social standards.
                 </p>
               </div>
             </div>
@@ -74,158 +68,130 @@ class About extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_1.jpg"
-                        alt="Image placeholder"
+                        alt="farah"
                         className="mb-4"
                       />
-                      <h3 className="block-38-heading h4">Elizabeth Graham</h3>
-                      <p className="block-38-subheading">CEO/Co-Founder</p>
+                      <h3 className="block-38-heading h4">Farah</h3>
+                      <p className="block-38-subheading">CEO/Scrum-Master</p>
                     </div>
                     <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
-                        doloribus ut fugit officia voluptate soluta.{" "}
+                     .{" "}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_2.jpg"
-                        alt="Image placeholder"
+                        alt="Ghosoun"
                         className="mb-4"
                       />
-                      <h3 className="block-38-heading h4">Jennifer Greive</h3>
-                      <p className="block-38-subheading">Co-Founder</p>
+                      <h3 className="block-38-heading h4"> Ghosoun</h3>
+                      <p className="block-38-subheading">Developer</p>
                     </div>
                     <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
-                        doloribus ut fugit officia voluptate soluta.{" "}
+                       .{" "}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-3">
+              <div className="col-md-6 col-lg-4 mt-5 align-items-center">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_3.jpg"
-                        alt="Image placeholder"
+                        alt="Osaid"
                         className="mb-4"
                       />
-                      <h3 className="block-38-heading h4">Patrick Marx</h3>
-                      <p className="block-38-subheading">Marketing</p>
+                      <h3 className="block-38-heading h4">Osaid</h3>
+                      <p className="block-38-subheading">Product Owner</p>
                     </div>
                     <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
-                        doloribus ut fugit officia voluptate soluta.{" "}
+                .{" "}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-3">
+           
+            </div>
+
+            <div className="row mt-5 " >
+              <div className="col-md-6 col-lg-6">
+                <div className="block-38 text-center">
+                  <div className="block-38-img">
+                    <div className="block-38-header">
+                      <img
+                        src="images/person_2.jpg"
+                        alt="Saja"
+                        className="mb-4"
+                      />
+                      <h3 className="block-38-heading h4">Saja</h3>
+                      <p className="block-38-subheading">Developer</p>
+                    </div>
+                    <div className="block-38-body">
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Vitae aut minima nihil sit distinctio recusandae
+                       {" "}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <div className="col-md-6 col-lg-6">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">
                       <img
                         src="images/person_4.jpg"
-                        alt="Image placeholder"
+                        alt="Omar"
                         className="mb-4"
                       />
-                      <h3 className="block-38-heading h4">Mike Coolbert</h3>
-                      <p className="block-38-subheading">Sales Manager</p>
+                      <h3 className="block-38-heading h4">Omar</h3>
+                      <p className="block-38-subheading">Developer</p>
                     </div>
                     <div className="block-38-body">
                       <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Vitae aut minima nihil sit distinctio recusandae
-                        doloribus ut fugit officia voluptate soluta.{" "}
+                     .{" "}
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+           
             </div>
+
           </div>
         </div>
 
-        <div
-          className="site-section site-section-sm site-blocks-1 border-0"
-
-        >
-          <div className="container">
-            <div className="row">
-              <div
-                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
-                data-aos="fade-up"
-                data-aos-delay=""
-              >
-                <div className="icon mr-4 align-self-start">
-                  <span className="icon-truck"></span>
-                </div>
-                <div className="text">
-                  <h2 className="text-uppercase">Free Shipping</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus at iaculis quam. Integer accumsan tincidunt
-                    fringilla.
-                  </p>
-                </div>
-              </div>
-              <div
-                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                <div className="icon mr-4 align-self-start">
-                  <span className="icon-refresh2"></span>
-                </div>
-                <div className="text">
-                  <h2 className="text-uppercase">Free Returns</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus at iaculis quam. Integer accumsan tincidunt
-                    fringilla.
-                  </p>
-                </div>
-              </div>
-              <div
-                className="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div className="icon mr-4 align-self-start">
-                  <span className="icon-help"></span>
-                </div>
-                <div className="text">
-                  <h2 className="text-uppercase">Customer Support</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus at iaculis quam. Integer accumsan tincidunt
-                    fringilla.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  
+         
+       
       </React.Fragment>
     );
   }
