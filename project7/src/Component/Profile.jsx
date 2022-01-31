@@ -20,12 +20,9 @@ export class Profile extends Component {
                       width="150"
                     />
                     <div className="mt-3">
-                      <h4>John Doe</h4>
-                      <p className="text-secondary mb-1">
-                        Full Stack Developer
-                      </p>
+                      <h4>{user.name}</h4>
                       <p className="text-muted font-size-sm">
-                        Bay Area, San Francisco, CA
+                      {user.address}
                       </p>
                       <button className="btn btn-dark b4">
                         <NavLink to="/logout" className="text-white">
@@ -33,8 +30,10 @@ export class Profile extends Component {
                         </NavLink>
                       </button>
                       <button className="btn btn-outline-dark b4">
-                        Message
-                      </button>
+                      <NavLink to="/weather" className="text-white">
+                          See The Weather
+                        </NavLink>                     
+                         </button>
                     </div>
                   </div>
                 </div>
@@ -64,14 +63,7 @@ export class Profile extends Component {
                     <div class="col-sm-9 text-secondary">{user.phone}</div>
                   </div>
                   <hr />
-                  <div className="row">
-                    <div className="col-sm-3">
-                      <h6 className="mb-0">Mobile</h6>
-                    </div>
-                    <div className="col-sm-9 text-secondary">
-                      (320) 380-4539
-                    </div>
-                  </div>
+              
                   <hr />
                   <div className="row">
                     <div className="col-sm-3">
