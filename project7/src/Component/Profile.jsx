@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router";
+import { Nav } from "./Nav";
 export class Profile extends Component {
   state = {
     redirect: false,
@@ -23,6 +24,8 @@ export class Profile extends Component {
 
   render() {
     return (
+      <React.Fragment>
+      <Nav />
       <div className="container4">
         {this.state.redirect === true ? (
           <Navigate to="/login" replace={true} />
@@ -47,11 +50,6 @@ export class Profile extends Component {
                       <p className="text-muted font-size-sm">
                       {this.state.user.address}
                       </p>
-                      <button className="btn btn-dark b4">
-                        <NavLink to="/logout" className="text-white">
-                          Logout
-                        </NavLink>
-                      </button>
                       <button className="btn btn-dark b4">
                       <NavLink to="/weather" className="text-white">
                           See The Weather
@@ -101,6 +99,8 @@ export class Profile extends Component {
           </div>
         </div>
       </div>
+      </React.Fragment>
+     
     );
   }
 }

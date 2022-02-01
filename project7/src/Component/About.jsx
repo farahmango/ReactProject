@@ -2,7 +2,7 @@ import react from "react";
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import YouTube from 'react-youtube';
-
+import { Nav } from "./Nav";
 
 class About extends Component {
   constructor(props) {
@@ -19,6 +19,8 @@ class About extends Component {
     };
     return (
       <React.Fragment>
+         
+      <Nav />
         <div className="bg-light py-3">
           <div className="container">
             <div className="row">
@@ -112,7 +114,7 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-4 mt-5 align-items-center">
+              <div className="col-md-6 col-lg-4 align-items-center">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">

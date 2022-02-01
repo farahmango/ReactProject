@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navigate } from "react-router";
+import { Nav } from "./Nav";
 import axios from "axios";
 class Cart extends Component {
   state = {
@@ -11,9 +12,8 @@ class Cart extends Component {
     checkOut: false,
     order_id: [],
     empty: false,
+    updateCart: false,
   };
-  
-
 
   componentDidMount() {
     this.receivedData();
@@ -22,27 +22,18 @@ class Cart extends Component {
       .then((response) => {
         sessionStorage.setItem("order_id", response.data[0].order_id);
       });
+    this.setState({
+      updateCart: false,
+    });
   }
 
-  incrementCount = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
-
-  decrementCount = () => {
-    this.setState({
-      count: this.state.count - 1,
-    });
-  };
-
   receivedData() {
-    if (sessionStorage.getItem("cart") != null) {
+    if (sessionStorage.getItem("cart") !== null) {
       let cart = JSON.parse(sessionStorage.getItem("cart"));
       let subTotal = 0;
       const postData = cart.map((product) => (
         <tr key={product[0].product_id}>
-         { console.log(product)}
+          {console.log(product)}
           <td className="product-thumbnail">
             <img
               src={product[0].image}
@@ -53,9 +44,9 @@ class Cart extends Component {
           <td className="product-name">
             <h2 className="h5 text-black">{product[0].product_name}</h2>
           </td>
-          <td> $ {product[0].product_price}</td>
+          <td> £ {product[0].product_price}</td>
           <td>{product[0].product_quantity}</td>
-          <td> $ {product[0].product_price * product[0].product_quantity}</td>
+          <td> £ {product[0].product_price * product[0].product_quantity}</td>
           <td>
             <button
               className="btn btn-dark btn-sm"
@@ -89,18 +80,22 @@ class Cart extends Component {
     event.preventDefault();
     this.setState({
       reRender: true,
+
     });
     let cart = JSON.parse(sessionStorage.getItem("cart"));
 
     let remainder = cart.filter((p) => {
       if (p[0].product_id !== id) return p;
     });
+    console.log(remainder);
     sessionStorage.setItem("cart", JSON.stringify(remainder));
     this.receivedData();
 
-    let delOrder = sessionStorage.getItem("numOfOrder") - 1;
-    sessionStorage.setItem("numOfOrder",delOrder);
-    // this.props.cartCounter-=1;
+    if (remainder.length === 0 ) {
+      window.location.href = "/empty";
+    } else {
+      window.location.href = "/cart";
+    }
   };
 
   checkOutHandler = () => {
@@ -114,7 +109,7 @@ class Cart extends Component {
       this.setState({
         checkOut: true,
       });
-      
+
       let user = JSON.parse(localStorage.getItem("currentUser"));
       console.log(user.id);
       let order = {
@@ -150,8 +145,6 @@ class Cart extends Component {
 
       sessionStorage.clear();
     }
-
-
   };
 
   orderDetails = () => {
@@ -172,122 +165,116 @@ class Cart extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.redirect === true ? (
-          <Navigate to="/login" replace={true} />
-        ) : (
-          ""
-        )}
-        {this.state.checkOut === true ? (
-          <Navigate to="/checkOut" replace={true} />
-        ) : (
-          ""
-        )}
-        {this.state.empty === true ? (
-          <Navigate to="/empty" replace={true} />
-        ) : (
-          ""
-        )}
-        <div className="bg-light py-3">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 mb-0">
-                <Link to="/">Home</Link>
-                <span className="mx-2 mb-0">/</span>
-                <strong className="text-black">Cart</strong>
+      <React.Fragment>
+        <Nav />
+        <div>
+          {this.state.redirect === true ? (
+            <Navigate to="/login" replace={true} />
+          ) : (
+            ""
+          )}
+          {this.state.checkOut === true ? (
+            <Navigate to="/checkOut" replace={true} />
+          ) : (
+            ""
+          )}
+          {this.state.empty === true ? (
+            <Navigate to="/empty" replace={true} />
+          ) : (
+            ""
+          )}
+          <div className="bg-light py-3">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12 mb-0">
+                  <Link to="/">Home</Link>
+                  <span className="mx-2 mb-0">/</span>
+                  <strong className="text-black">Cart</strong>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="site-section">
-          <div className="container">
-            <div className="row mb-5">
-              <form className="col-md-12" method="post">
-                <div className="site-blocks-table">
-                  <table className="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th className="product-thumbnail">Image</th>
-                        <th className="product-name">Product</th>
-                        <th className="product-price">Price</th>
-                        <th className="product-quantity">Quantity</th>
-                        <th className="product-total">Total</th>
-                        <th className="product-remove">Remove</th>
-                      </tr>
-                    </thead>
-                    <tbody>{this.state.postData}</tbody>
-                  </table>
-                </div>
-              </form>
-            </div>
+          <div className="site-section">
+            <div className="container">
+              <div className="row mb-5">
+                <form className="col-md-12" method="post">
+                  <div className="site-blocks-table">
+                    <table className="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th className="product-thumbnail">Image</th>
+                          <th className="product-name">Product</th>
+                          <th className="product-price">Price</th>
+                          <th className="product-quantity">Quantity</th>
+                          <th className="product-total">Total</th>
+                          <th className="product-remove">Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody>{this.state.postData}</tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
 
-            <div className="row">
-              <div className="col-md-8 ">
-                <div className="row justify-content-end">
-                  <div className="col-md-7">
-                    <div className="row">
-                      <div className="col-md-12 text-left border-bottom mb-5">
-                        <h3 className="text-black h4 text-uppercase">
-                          Cart Totals
-                        </h3>
+              <div className="row">
+                <div className="col-md-8 ">
+                  <div className="row justify-content-end">
+                    <div className="col-md-7">
+                      <div className="row">
+                        <div className="col-md-12 text-left border-bottom mb-5">
+                          <h3 className="text-black h4 text-uppercase">
+                            Cart Totals
+                          </h3>
+                        </div>
+                      </div>
+
+                      <div className="row mb-5">
+                        <div className="col-md-6">
+                          <span className="text-black">Total</span>
+                        </div>
+                        <div className="col-md-6 text-right">
+                          <strong className="text-black">
+                            {" "}
+                            £ {this.state.total}
+                          </strong>
+                        </div>
+                      </div>
+
+                      <div className="row mb-5">
+                        <div className="col-md-6">
+                          <span className="text-black">
+                            <label style={{ fontWeight: "bold" }}>
+                              Cash On Delivery
+                            </label>
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="row">
+                        <div className="col-md-12">
+                          <button
+                            className="btn btn-dark btn-lg py-3 btn-block"
+                            onClick={this.checkOutHandler}
+                          >
+                            Proceed To Checkout
+                          </button>
+                          <Link
+                            to="/shop"
+                            className="btn btn-dark btn-lg py-3 btn-block"
+                          >
+                            Continue Shopping
+                          </Link>
+                        </div>
                       </div>
                     </div>
-
-                    <div className="row mb-5">
-                      <div className="col-md-6">
-                        <span className="text-black">Total</span>
-                      </div>
-                      <div className="col-md-6 text-right">
-                        <strong className="text-black">
-                          {" "}
-                          $ {this.state.total}
-                        </strong>
-                      </div>
-                    </div>
-
-
-                    <div className="row mb-5">
-                      <div className="col-md-6">
-                        <span className="text-black">
-                     <label style={{ fontWeight:'bold' }}>Cash On Delivery</label>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="col-md-12">
-                        <button
-                          className="btn btn-dark btn-lg py-3 btn-block"
-                          onClick={this.checkOutHandler}
-                        >
-                          Proceed To Checkout
-                        </button>
-                        <Link
-                          to="/shop"
-                          className="btn btn-dark btn-lg py-3 btn-block"
-                        >
-                          Continue Shopping
-                        </Link>
-                      </div>
-                    </div>
-
-                    {/* <div className="row">
-                      <div className="col-md-12">
-                        <form action="">
-                          <label htmlFor=""><input type="checkbox"/></label>
-                          
-                        </form>
-                      </div>
-                    </div> */}
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
