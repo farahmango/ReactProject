@@ -3,7 +3,7 @@ import axios from "axios";
 import ReactPaginate from "react-paginate";
 import "./page.css";
 import { Link } from "react-router-dom";
-import FormData from "form-data";
+import { Nav } from "./Nav";
 
 class Shop extends Component {
 
@@ -32,7 +32,6 @@ class Shop extends Component {
       .get(`http://127.0.0.1/ReactProject/project7/src/Component/shop.php`)
       .then((res) => {
         const data = res.data;
-        //console.log(data);
         localStorage.setItem("products", JSON.stringify(data));
         const slice = data.slice(
           this.state.offset,
@@ -40,7 +39,7 @@ class Shop extends Component {
         );
         const postData = slice.map((pd) => (
             <div
-              className="col-lg-4 col-sm-5 btn  mb-3 d-flex flex-column align-items-center"
+              className="col-lg-4 btn col-sm-5 mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}>
               <Link to={"/single-product/" + pd.product_id}>
                 <div className="row ">
@@ -116,6 +115,8 @@ class Shop extends Component {
     })
 
     return (
+      <React.Fragment>
+      <Nav />
       <div>
         <div className="site-wrap">
           <div className="bg-light py-3">
@@ -144,8 +145,7 @@ class Shop extends Component {
                               type="text"
                               className="form-control border-0"
                               placeholder="Search"
-                              onChange={(e)=>this.searchSpace(e)}
-                            />
+                              onChange={(e)=>this.searchSpace(e)} />
                             {items}
                           </form>
                      
@@ -181,6 +181,8 @@ class Shop extends Component {
           </div>
         </div>
       </div>
+      </React.Fragment>
+      
     );
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-
+import { Nav } from "./Nav";
 import axios from "axios";
 //import { Route, Navigate } from "react-router-dom";
 import { Navigate } from "react-router";
@@ -82,6 +82,8 @@ class Login extends Component {
   render() {
     return (
       <React.Fragment>
+         
+      <Nav />
         {this.state.loggedIn === true ? (
           <Navigate to="/shop" replace={true} />
         ) : (
