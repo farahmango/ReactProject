@@ -53,7 +53,7 @@ export class Nav extends Component {
 
                     <li>
                        
-                        <NavLink to="/empty" className="site-cart">
+                        <NavLink to="/cart" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
                           <span className="count text-danger">{this.state.cartIcon == false ? 0 : '*' }</span>
                         </NavLink>
