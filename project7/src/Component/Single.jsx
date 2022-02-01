@@ -4,48 +4,37 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function Single() {
-  
+function Single(props) {
+
   let { id } = useParams();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   let incrementCount = () => {
     setCount(count + 1);
   };
 
   let decrementCount = () => {
+    if(count>=2)
     setCount(count - 1);
   };
 
   let products = JSON.parse(localStorage.getItem("products"));
-  //console.log(products);
+ 
   let product = products.filter((p) => {
     if (p.product_id === id) {
       return p;
     }
   });
-  // console.log(product[0].product_name);
-  // console.log(product);
 
   const addToCartHandler = () => {
 
-    // let countNum = sessionStorage.getItem("numOfOrder")?sessionStorage.getItem("numOfOrder").length:0;
-    
-    // props.cartCounter(countNum);
-    // console.log(props.cartCounter(countNum));
-
-    
-    // num of order in cart
-    // if(sessionStorage.getItem("numOfOrder") == null){
-    //   sessionStorage.setItem("numOfOrder", parseInt(1));
-    // }else{
-    //   sessionStorage.setItem("numOfOrder", parseInt(sessionStorage.getItem("numOfOrder"))+1);
-    // }
-
+   // num of order in cart
     if(sessionStorage.getItem("numOfOrder") == null){
-      sessionStorage.setItem("numOfOrder",1);
+      sessionStorage.setItem("numOfOrder", parseInt(1));
+    }else{
+      sessionStorage.setItem("numOfOrder", parseInt(sessionStorage.getItem("numOfOrder"))+1);
     }
-    //sessionStorage.clear();
+
     
     if (sessionStorage.getItem("cart") == null) {
       product[0].product_quantity = count;
@@ -79,6 +68,9 @@ function Single() {
         cart = [...cart, product];
       sessionStorage.setItem("cart", JSON.stringify(cart));}
     }
+
+    props.cartCounterHandler(Number(sessionStorage.getItem("numOfOrder")))
+
   };
 
   return (
@@ -143,15 +135,17 @@ function Single() {
                   </div>
                 </div>
               </div>
+              <Link to="/cart" className="text-white">
               <button
                 name="addToCart"
                 className="buy-now btn btn-sm btn-primary"
-                onClick={addToCartHandler()}
+                onClick={addToCartHandler}
               >
-                <Link to="/cart" className="text-white">
+                
                   Add To Cart
-                </Link>
+                
               </button>
+              </Link>
             </div>
           </div>
         </div>

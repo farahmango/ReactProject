@@ -142,7 +142,7 @@ export class Body extends Component {
 
             <div className="col d-flex flex-column align-items-center  order-first">
               <div className="card btn" style={{ width: "15rem", border: "none" }}>
-                <img src="/frutes/p02.jpg" className="card-img-top" alt="..." />
+              <Link to="shop" ><img src="/frutes/p02.jpg" className="card-img-top" alt="..." /></Link>
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
                     Plum-Marian
@@ -153,7 +153,7 @@ export class Body extends Component {
             </div>
             <div className="col d-flex flex-column align-items-center order-first">
               <div className="card btn" style={{ width: "15rem", border: "none" }}>
-                <img src="/frutes/p03.jpg" className="card-img-top" alt="..." />
+              <Link to="shop" ><img src="/frutes/p03.jpg" className="card-img-top" alt="..." /></Link>
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
                     Sweetie Fruit
@@ -164,7 +164,7 @@ export class Body extends Component {
             </div>
             <div className="col d-flex flex-column align-items-center order-first">
               <div className="card btn" style={{ width: "15rem", border: "none" }}>
-                <img src="/frutes/p04.jpg" className="card-img-top" alt="..." />
+              <Link to="shop" ><img src="/frutes/p04.jpg" className="card-img-top" alt="..." /></Link>
                 <div style={{ height: "12vh" }}>
                   <h5 className="card-title" style={{ color: "black" }}>
                     Peach/Flat

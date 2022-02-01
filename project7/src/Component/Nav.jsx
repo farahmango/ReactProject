@@ -19,11 +19,7 @@ export class Nav extends Component {
       this.setState({
         cartIcon :false 
       })
-        
-     
     }
-    
-  
   }
 
   
@@ -55,7 +51,7 @@ export class Nav extends Component {
                        
                         <NavLink to="/empty" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count text-danger">{this.state.cartIcon == false ? 0 : '*' }</span>
+                          <span className="count text-danger">{sessionStorage.getItem("numOfOrder") ?this.props.cartState:0}</span>
                         </NavLink>
                      
                     </li>

@@ -16,7 +16,6 @@ class Shop extends Component {
       currentPage: 0,
       search:null,
       page : ''
-   
     };
     this.handlePageClick = this.handlePageClick.bind(this);
   }

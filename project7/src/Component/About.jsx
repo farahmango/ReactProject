@@ -112,7 +112,7 @@ class About extends Component {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-lg-4 mt-5 align-items-center">
+              <div className="col-md-6 col-lg-4 align-items-center">
                 <div className="block-38 text-center">
                   <div className="block-38-img">
                     <div className="block-38-header">

@@ -21,6 +21,8 @@ import CheckOut from "./Component/CheckOut.jsx";
 
 function App() {
   const [item, setItem] = useState([]);
+  const [cartState, setCartState] = useState(false);
+
   
   useEffect(() => {
     fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
@@ -30,12 +32,15 @@ function App() {
       });
   }, []);
 
+  const cartCounter = (cartState) => {
+    setCartState(cartState)
+  }
  
   return (
     <React.Fragment>
       <BrowserRouter>
         <div className="site-wrap">
-          <Nav />
+          <Nav cartState={cartState}/>
           <Routes>
             <Route path="/" element={<Body />} />
             <Route path="/weather" element={<Api />} />
@@ -46,7 +51,7 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/single-product/:id" element={<Single />} />
+            <Route path="/single-product/:id" element={<Single cartCounterHandler={cartCounter}/>} />
             <Route path="/empty" element={<Empty />} />
             <Route path="/checkOut" element={<CheckOut />} />
           </Routes>

@@ -53,9 +53,9 @@ class Cart extends Component {
           <td className="product-name">
             <h2 className="h5 text-black">{product[0].product_name}</h2>
           </td>
-          <td> $ {product[0].product_price}</td>
+          <td> £ {product[0].product_price}</td>
           <td>{product[0].product_quantity}</td>
-          <td> $ {product[0].product_price * product[0].product_quantity}</td>
+          <td> £ {product[0].product_price * product[0].product_quantity}</td>
           <td>
             <button
               className="btn btn-dark btn-sm"
@@ -241,7 +241,7 @@ class Cart extends Component {
                       <div className="col-md-6 text-right">
                         <strong className="text-black">
                           {" "}
-                          $ {this.state.total}
+                          £ {this.state.total}
                         </strong>
                       </div>
                     </div>
