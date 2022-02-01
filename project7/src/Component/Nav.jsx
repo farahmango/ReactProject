@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
 
@@ -8,21 +7,37 @@ export class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rerender: true,
-      cartCounter:0 ,
-      cartIcon :true 
-     
+      rerender: false,
+      cartCounter: 0,
+      cartIcon: true,
     };
   }
   componentDidMount() {
-    if(sessionStorage.getItem("numOfOrder")==null){
+    if (localStorage.getItem("currentUser") !== null) {
       this.setState({
-        cartIcon :false 
-      })
+        rerender: true,
+      });
+    } else {
+      this.setState({
+        rerender: false,
+      });
+    }
+
+    if (sessionStorage.getItem("cart") !== null) {
+      let cart = JSON.parse(sessionStorage.getItem("cart"));
+      let count = 0;
+      cart.forEach((element) => {
+        count++;
+      });
+      this.setState({
+        cartCounter: count,
+      });
+    } else {
+      this.setState({
+        cartCounter: 0,
+      });
     }
   }
-
-  
 
   render() {
     return (
@@ -47,14 +62,30 @@ export class Nav extends Component {
                       </NavLink>
                     </li>
 
-                    <li>
-                       
+                    {this.state.cartCounter === 0 ? (
+                      <li>
                         <NavLink to="/empty" className="site-cart">
                           <span className="icon icon-shopping_cart"></span>
-                          <span className="count text-danger">{sessionStorage.getItem("numOfOrder") ?this.props.cartState:0}</span>
+                          <span className="count text-black h6">
+                            {this.state.cartCounter === 0
+                              ? 0
+                              : this.state.cartCounter}
+                          </span>
                         </NavLink>
-                     
+                      </li>
+                    ) : (
+                      <li>
+                      <NavLink to="/cart" className="site-cart">
+                        <span className="icon icon-shopping_cart"></span>
+                        <span className="count text-black h6">
+                          {this.state.cartCounter === 0
+                            ? 0
+                            : this.state.cartCounter}
+                        </span>
+                      </NavLink>
                     </li>
+                    )}
+
                     <li className="d-inline-block d-md-none ml-md-0">
                       <a href="#" className="site-menu-toggle js-menu-toggle">
                         <span className="icon-menu"></span>
@@ -82,14 +113,22 @@ export class Nav extends Component {
               <li>
                 <NavLink to="/about">About</NavLink>
               </li>
-
-              <li>
-                <NavLink to="/login">Login</NavLink>
-              </li>
-
-              <li>
-                <NavLink to="/register">Register</NavLink>
-              </li>
+              {this.state.rerender !== true ? (
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink to="/logout">Logout</NavLink>
+                </li>
+              )}
+              {this.state.rerender !== true ? (
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              ) : (
+                ""
+              )}
             </ul>
           </div>
         </nav>

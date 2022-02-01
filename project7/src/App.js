@@ -40,7 +40,7 @@ function App() {
     <React.Fragment>
       <BrowserRouter>
         <div className="site-wrap">
-          <Nav cartState={cartState}/>
+          {/* <Nav /> */}
           <Routes>
             <Route path="/" element={<Body />} />
             <Route path="/weather" element={<Api />} />

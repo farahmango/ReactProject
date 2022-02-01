@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Nav } from "./Nav";
 import "./Register/css/style.css";
 import "./Register/fonts/material-icon/css/material-design-iconic-font.min.css";
 import axios from "axios";
@@ -123,6 +124,8 @@ class Register extends Component {
   render() {
     return (
       <React.Fragment>
+        
+      <Nav />
         <section className="signup">
           {this.state.redirect === true ? (
             <Navigate to="/shop" replace={true} />

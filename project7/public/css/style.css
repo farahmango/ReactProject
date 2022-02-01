@@ -963,3 +963,9 @@ margin-right:10px;
 #fruit{
   height: 250px !important;
 }
+.cart{
+  font-size: 14px !important;
+}
+.custom-icon{
+font-size: 20px;
+}
