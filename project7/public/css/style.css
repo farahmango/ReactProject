@@ -89,7 +89,7 @@ a {
   padding: 2.5em 0; }
   @media (min-width: 768px) {
     .site-section {
-      padding: 5em 0; } }
+      padding: 1em 0; } }
   .site-section.site-section-sm {
     padding: 4em 0; }
 
@@ -147,8 +147,8 @@ a {
     margin-bottom: 0px; }
     @media (min-width: 768px) {
       .site-navbar .site-navbar-top {
-        padding-top: 40px;
-        padding-bottom: 40px; } }
+        padding-top: 20px;
+        padding-bottom: 0; } }
   .site-navbar .site-search-icon a span {
     display: inline-block;
     margin-right: 10px; }
@@ -161,7 +161,8 @@ a {
     font-size: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 2px solid #25262a; }
+    /* border: 2px solid #25262a;  */
+  }
     .site-navbar .site-logo a:hover {
       text-decoration: none; }
   .site-navbar a {
@@ -187,7 +188,7 @@ a {
           right: 0;
           margin-right: -15px;
           margin-top: -20px;
-          font-size: 20px;
+          font-size: 14px;
           font-weight: bold;
           width: 24px;
           height: 24px;
@@ -961,8 +962,8 @@ margin-right:10px;
 
 }
 #fruit{
+  height: 250px !important;
   object-fit: cover;
-  height: 230px !important;
 }
 .cart{
   font-size: 14px !important;
