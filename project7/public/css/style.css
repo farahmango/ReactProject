@@ -961,7 +961,8 @@ margin-right:10px;
 
 }
 #fruit{
-  height: 250px !important;
+  object-fit: cover;
+  height: 230px !important;
 }
 .cart{
   font-size: 14px !important;

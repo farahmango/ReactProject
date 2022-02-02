@@ -41,7 +41,7 @@ export class Nav extends Component {
 
   render() {
     return (
-      <header className="site-navbar" role="banner">
+      <header className="site-navbar" role="banner" >
         <div className="site-navbar-top">
           <div className="container">
             <div className="row align-items-center justify-content-between">

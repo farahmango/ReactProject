@@ -46,7 +46,7 @@ class Shop extends Component {
                     <div
                       className="card"
                       style={{ width: "15rem", border: "none" }} >
-                      <img width="100%" height="200px" src={pd.image} className="card-img-top" alt={pd.product_name} />
+                      <img id="fruit" src={pd.image} className="card-img-top" alt={pd.product_name} />
                       <div className="text-black">
                         <h5 className="card-title text-black">{pd.product_name}</h5>
                        <strong className="h4">£ {pd.product_price}</strong> 
