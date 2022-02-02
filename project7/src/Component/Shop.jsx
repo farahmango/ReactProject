@@ -12,7 +12,7 @@ class Shop extends Component {
     this.state = {
       offset: 0,
       data: [],
-      perPage: 9,
+      perPage: 12,
       currentPage: 0,
       search:null,
       page : ''
@@ -38,7 +38,7 @@ class Shop extends Component {
         );
         const postData = slice.map((pd) => (
             <div
-              className="col-lg-4 btn col-sm-5 mb-3 d-flex flex-column align-items-center"
+              className="col-lg-3 btn col-sm-5 mb-3 d-flex flex-column align-items-center"
               key={pd.product_id}>
               <Link to={"/single-product/" + pd.product_id}>
                 <div className="row ">
@@ -46,7 +46,7 @@ class Shop extends Component {
                     <div
                       className="card"
                       style={{ width: "15rem", border: "none" }} >
-                      <img width="100%" height="200px" src={pd.image} className="card-img-top" alt={pd.product_name} />
+                      <img id="fruit" src={pd.image} className="card-img-top" alt={pd.product_name} />
                       <div className="text-black">
                         <h5 className="card-title text-black">{pd.product_name}</h5>
                        <strong className="h4">£ {pd.product_price}</strong> 
@@ -135,7 +135,7 @@ class Shop extends Component {
               <div className="row mb-5 m-auto">
                 <div className="col-md-12 ">
                   <div className="row">
-                    <div className="col-md-12 mb-5">
+                    <div className="col-md-12 mb-2">
                       <div className="float-md-left mb-4">
                        
                           <form action="" className="site-block-top-search">

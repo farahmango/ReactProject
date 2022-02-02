@@ -48,7 +48,7 @@ export class Nav extends Component {
               <div className="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-left">
                 <div className="site-logo">
                   <Link to="/" className="js-logo-clone">
-                    Exotic Fruits
+                    <img src="images/logo4.png" width="200px" alt="" />
                   </Link>
                 </div>
               </div>
