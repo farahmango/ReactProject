@@ -135,7 +135,7 @@ class Shop extends Component {
               <div className="row mb-5 m-auto">
                 <div className="col-md-12 ">
                   <div className="row">
-                    <div className="col-md-12 mb-2">
+                    <div className="col-md-12 mb-5">
                       <div className="float-md-left mb-4">
                        
                           <form action="" className="site-block-top-search">

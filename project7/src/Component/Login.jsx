@@ -84,6 +84,7 @@ class Login extends Component {
       <React.Fragment>
          
       <Nav />
+      
         {this.state.loggedIn === true ? (
           <Navigate to="/shop" replace={true} />
         ) : (

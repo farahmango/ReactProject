@@ -17,13 +17,10 @@ import Logout from "./Component/Logout.jsx";
 import Empty from "./Component/Empty.jsx";
 import CheckOut from "./Component/CheckOut.jsx";
 
-
-
 function App() {
   const [item, setItem] = useState([]);
   const [cartState, setCartState] = useState(false);
 
-  
   useEffect(() => {
     fetch("http://127.0.0.1/ReactProject/project7/src/Component/shop.php")
       .then((res) => res.json())
@@ -33,9 +30,9 @@ function App() {
   }, []);
 
   const cartCounter = (cartState) => {
-    setCartState(cartState)
-  }
- 
+    setCartState(cartState);
+  };
+
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -51,11 +48,13 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/single-product/:id" element={<Single cartCounterHandler={cartCounter}/>} />
+            <Route
+              path="/single-product/:id"
+              element={<Single cartCounterHandler={cartCounter} />}
+            />
             <Route path="/empty" element={<Empty />} />
             <Route path="/checkOut" element={<CheckOut />} />
           </Routes>
-       
           <Footer />
         </div>
       </BrowserRouter>

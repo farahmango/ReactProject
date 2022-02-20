@@ -26,7 +26,7 @@ function Single() {
   });
 
   const addToCartHandler = () => {
-    if (sessionStorage.getItem("cart") == null) {
+    if (sessionStorage.getItem("cart") !== null) {
       product[0].product_quantity = count;
       let newProduct = [product];
 
@@ -66,7 +66,7 @@ function Single() {
           <div className="container">
             <div className="row">
               <div className="col-md-12 mb-0">
-                <a href="index.html">Home</a>{" "}
+                <Link to="/shop">Shop</Link>{" "}
                 <span className="mx-2 mb-0">/</span>{" "}
                 <strong className="text-black">
                   {product[0].product_name}
